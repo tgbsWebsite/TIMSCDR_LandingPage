@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMSCDR-ADMISSIONS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; 
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Tech graphic dashed rings (Section 1) */
+        .tech-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1.5px solid rgba(74, 101, 255, 0.3);
+        }
+        
+        /* Section 2 Styles */
+        .primary-gradient {
+            background: linear-gradient(90deg, #3B5BFF 0%, #B670FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dotted-bg {
+            background-color: #FAFCFF;
+            background-image: radial-gradient(#E6E8EC 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+        }
+        .shadow-tab {
+            box-shadow: 0 4px 12px rgba(59, 91, 255, 0.08);
+        }
+        .shadow-content {
+            box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Active Tab Underline styling */
+        .tab-underline {
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #3B5BFF;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tab-button.selected .tab-underline {
+            opacity: 1;
+        }
+        .tab-pointer {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #3B5BFF;
+            border-bottom: 2px solid #3B5BFF;
+            background-color: #FAFCFF;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tab-button.selected .tab-pointer {
+            opacity: 1;
+        }
+    </style>
+
+    <style>
+     
+        /* 3D Glowing Podium Ellipses */
+        .podium-ring {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background-color: rgba(123, 140, 255, 0.05);
+        }
+
+        /* Float animation for orbs */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+    <style>
+    /* Custom select dropdown arrow */
+    .custom-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236F767E' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.75rem center;
+        background-repeat: no-repeat;
+        background-size: 1.25em 1.25em;
+    }
+    
+    /* Custom Checkbox for Consent/Captcha */
+    .custom-checkbox {
+        appearance: none;
+        background-color: #fff;
+        margin: 0;
+        font: inherit;
+        color: currentColor;
+        width: 1.15em;
+        height: 1.15em;
+        border: 1.5px solid #CBD5E1;
+        border-radius: 0.25em;
+        display: grid;
+        place-content: center;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    .custom-checkbox::before {
+        content: "";
+        width: 0.6em;
+        height: 0.6em;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em white;
+        background-color: white;
+        transform-origin: center;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+    .custom-checkbox:checked {
+        background-color: #3B5BFF;
+        border-color: #3B5BFF;
+    }
+    .custom-checkbox:checked::before {
+        transform: scale(1);
+    }
+</style>
+</head>
+<body>
+
+    <section class="relative bg-[#02112C] w-full pb-12 pt-8 z-10">
+        <div class="absolute right-0 top-0 w-full lg:w-[60%] h-full z-0">
+            <img src="/MCA00442.JPG" alt="Students" class="w-full h-full object-cover opacity-95 object-[60%_center]" />
+            <div class="absolute inset-0 bg-gradient-to-r from-[#02112C] via-[#02112C]/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#02112C]/60 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-20 max-w-[1400px] mx-auto px-6 lg:px-12">
+            <header class="flex justify-start items-center mb-12 -ml-14">
+                <img src="/TIMSCDR Logo.svg" alt="TIMSCDR Logo" class="h-20 w-78 object-contain" />
+            </header>
+
+            <div class="flex flex-col lg:flex-row relative">
+                <div class="w-full lg:w-[65%] z-30 pt-4 pb-12 lg:-ml-12">
+                    <p class="text-[#647CFF] text-[13px] font-semibold tracking-[0.15em] uppercase mb-5">
+                        Shaping Careers. Impacting Lives.
+                    </p>
+                    <h1 class="text-[44px] lg:text-[52px] leading-[1.1] font-bold mb-6 tracking-tight">
+                        <span class="text-white">Industry Relevant Education.</span><br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7B8CFF] to-[#A370FF]">
+                            Future Ready Careers.
+                        </span>
+                    </h1>
+                    <p class="text-gray-300 text-[17px] mb-10 max-w-md leading-relaxed font-light">
+                        AICTE approved MCA programs with advanced curriculum, practical exposure and holistic development.
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <button class="bg-[#3B5BFF] hover:bg-blue-600 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
+                            Apply Now
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                        <button class="bg-transparent border border-[#4A65FF] hover:bg-[#4A65FF]/10 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Explore Programs
+                        </button>
+                    </div>
+                </div>
+
+                <div class="absolute right-[34%] top-1/2 -translate-y-[35%] w-[320px] h-[320px] hidden lg:block z-20 pointer-events-none">
+                    
+                    <svg class="absolute inset-0 w-full h-full z-0" viewBox="0 0 320 320">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                                <path d="M 0 0 L 5 2.5 L 0 5 z" fill="#4A65FF" opacity="0.7"/>
+                            </marker>
+                        </defs>
+                        <line x1="160" y1="160" x2="95" y2="95" stroke="#4A65FF" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowhead)" />
+                        <line x1="160" y1="160" x2="60" y2="160" stroke="#4A65FF" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowhead)" />
+                        <line x1="160" y1="160" x2="95" y2="225" stroke="#4A65FF" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowhead)" />
+                        <line x1="160" y1="160" x2="225" y2="95" stroke="#4A65FF" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowhead)" />
+                        <line x1="160" y1="160" x2="260" y2="160" stroke="#4A65FF" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowhead)" />
+                        <line x1="160" y1="160" x2="225" y2="225" stroke="#4A65FF" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowhead)" />
+                    </svg>
+
+                    <div class="tech-ring w-[130px] h-[130px] border-[#4A65FF]/35 border-[1px]"></div>
+                    <div class="tech-ring w-[240px] h-[240px] border-[#4A65FF]/45 border-[1.5px]"></div>
+
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[56px] h-[56px] bg-[#02112C] border-[2px] border-[#4A65FF] rounded-lg flex items-center justify-center shadow-[0_0_25px_rgba(74,101,255,0.5)] z-20">
+                        <svg class="w-8 h-8 text-[#7B8CFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="4" y="4" width="16" height="16" rx="2" stroke-width="1.5"></rect>
+                            <path d="M8 8h2v2H8z M11 8h2v2h-2z M14 8h2v2h-2z M8 11h2v2H8z M11 11h2v2h-2z M14 11h2v2h-2z M8 14h2v2H8z M11 14h2v2h-2z M14 14h2v2h-2z" fill="currentColor" stroke="none"></path>
+                            <path stroke-linecap="round" stroke-width="1.5" d="M8 1v3m4-3v3m4-3v3M1 8h3m-3 4h3m-3 4h3m19-8h-3m3 4h-3m3 4h-3M8 23v-3m4 3v-3m4 3v-3"></path>
+                        </svg>
+                        <div class="absolute -inset-1.5 border border-[#4A65FF]/35 rounded-lg animate-pulse pointer-events-none"></div>
+                    </div>
+
+                    <div class="absolute z-30" style="left: 78px; top: 78px; transform: translate(-50%, -50%);">
+                        <div class="relative w-[32px] h-[32px] rounded-full border-[1.5px] border-[#4A65FF] flex items-center justify-center bg-[#02112C] text-[#7B8CFF] shadow-[0_0_12px_rgba(74,101,255,0.25)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 14l4-4 4 4 6-6"/></svg>
+                            <div class="absolute right-[calc(100%+10px)] top-1/2 -translate-y-1/2 text-right w-max">
+                                <span class="text-white text-[10px] block leading-tight font-medium">Data</span>
+                                <span class="text-white text-[10px] block leading-tight font-medium">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute z-30" style="left: 45px; top: 160px; transform: translate(-50%, -50%);">
+                        <div class="relative w-[32px] h-[32px] rounded-full border-[1.5px] border-[#4A65FF] flex items-center justify-center bg-[#02112C] text-[#7B8CFF] shadow-[0_0_12px_rgba(74,101,255,0.25)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                            <div class="absolute right-[calc(100%+10px)] top-1/2 -translate-y-1/2 text-right w-max">
+                                <span class="text-white text-[10px] block leading-tight font-medium">Artificial</span>
+                                <span class="text-white text-[10px] block leading-tight font-medium">Intelligence</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute z-30" style="left: 78px; top: 242px; transform: translate(-50%, -50%);">
+                        <div class="relative w-[32px] h-[32px] rounded-full border-[1.5px] border-[#4A65FF] flex items-center justify-center bg-[#02112C] text-[#7B8CFF] shadow-[0_0_12px_rgba(74,101,255,0.25)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            <div class="absolute right-[calc(100%+10px)] top-1/2 -translate-y-1/2 text-right w-max">
+                                <span class="text-white text-[10px] block leading-tight font-medium">Software</span>
+                                <span class="text-white text-[10px] block leading-tight font-medium">Development</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute z-30" style="left: 242px; top: 78px; transform: translate(-50%, -50%);">
+                        <div class="relative w-[32px] h-[32px] rounded-full border-[1.5px] border-[#4A65FF] flex items-center justify-center bg-[#02112C] text-[#7B8CFF] shadow-[0_0_12px_rgba(74,101,255,0.25)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 12v-6m0 0l-3 3m3-3l3 3"></path></svg>
+                            <div class="absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 text-left w-max">
+                                <span class="text-white text-[10px] block leading-tight font-medium">Cloud</span>
+                                <span class="text-white text-[10px] block leading-tight font-medium">Computing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute z-30" style="left: 275px; top: 160px; transform: translate(-50%, -50%);">
+                        <div class="relative w-[32px] h-[32px] rounded-full border-[1.5px] border-[#4A65FF] flex items-center justify-center bg-[#02112C] text-[#7B8CFF] shadow-[0_0_12px_rgba(74,101,255,0.25)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <rect x="10" y="11" width="4" height="4" rx="1" stroke-width="1.5"></rect>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 11V9a2 2 0 114 0v2"></path>
+                            </svg>
+                            <div class="absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 text-left w-max">
+                                <span class="text-white text-[10px] block leading-tight font-medium">Cyber</span>
+                                <span class="text-white text-[10px] block leading-tight font-medium">Security</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute z-30" style="left: 242px; top: 242px; transform: translate(-50%, -50%);">
+                        <div class="relative w-[32px] h-[32px] rounded-full border-[1.5px] border-[#4A65FF] flex items-center justify-center bg-[#02112C] text-[#7B8CFF] shadow-[0_0_12px_rgba(74,101,255,0.25)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                            <div class="absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 text-left w-max">
+                                <span class="text-white text-[10px] block leading-tight font-medium">Networking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 border-[#4A65FF]/40 pt-4 pb-2 flex flex-wrap lg:flex-nowrap items-center justify-between max-w-[910px] gap-y-3 gap-x-4 z-30 relative -translate-y-6">
+                <div class="flex items-center gap-2">
+                    <svg class="w-9 h-16 text-[#5C75FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"></path>
+                    </svg>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">25+</h3>
+                        <p class="text-gray-300 text-[16px] leading-none">Years of Excellence</p>
+                    </div>
+                </div>
+                <div class="hidden lg:block w-px h-10 bg-[#4A65FF]/30"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-9 h-16 text-[#5C75FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">5000+</h3>
+                        <p class="text-gray-300 text-[16px] leading-none">Alumni Network</p>
+                    </div>
+                </div>
+                <div class="hidden lg:block w-px h-10 bg-[#4A65FF]/30"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-9 h-16 text-[#5C75FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 20h16M4 16v4m4-8v8m4-12v12"></path>
+                    </svg>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">300+</h3>
+                        <p class="text-gray-300 text-[16px] leading-none">Recruiting Partners</p>
+                    </div>
+                </div>
+                <div class="hidden lg:block w-px h-10 bg-[#4A65FF]/30"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-9 h-14 text-[#5C75FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                    </svg>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">100%</h3>
+                        <p class="text-gray-300 text-[16px] leading-none">Placement Assistance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative z-30 max-w-[1600px] mx-auto px-6 lg:px-12 -mt-[52px] mb-12">
+        <div class="bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] px-8 py-8 flex flex-col lg:flex-row items-center justify-between gap-6 w-full">
+            <div class="flex items-center gap-5 flex-1 w-full relative">
+                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div class="flex flex-col">
+                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight">MCA</h4>
+                    <p class="text-gray-500 text-[16px] mt-1 mb-2">2 Years</p>
+                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
+                </div>
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-px h-[50px] bg-gray-200 hidden lg:block"></div>
+            </div>
+            <div class="flex items-center gap-5 flex-1 w-full pl-0 lg:pl-4 relative">
+                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14v6"></path></svg>
+                </div>
+                <div class="flex flex-col">
+                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight">Integrated MCA</h4>
+                    <p class="text-gray-500 text-[16px] mt-1 mb-2">5 Years</p>
+                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
+                </div>
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-px h-[50px] bg-gray-200 hidden lg:block"></div>
+            </div>
+            <div class="flex items-center gap-5 flex-1 w-full pl-0 lg:pl-4 relative">
+                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div class="flex flex-col">
+                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight flex items-center flex-wrap">MCA <span class="text-gray-600 font-medium text-[16px] ml-1">(Working Professionals)</span></h4>
+                    <p class="text-gray-500 text-[16px] mt-1 mb-2">Weekend Program</p>
+                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
+                </div>
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-px h-[50px] bg-gray-200 hidden lg:block"></div>
+            </div>
+            <div class="flex items-center gap-5 flex-1 w-full pl-0 lg:pl-4">
+                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                </div>
+                <div class="flex flex-col">
+                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight">PhD</h4>
+                    <p class="text-gray-500 text-[16px] mt-1 mb-2">Doctorate Program</p>
+                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <section class="dotted-bg w-full font-sans antialiased py-10 relative overflow-hidden border-t border-gray-200">
+        
+        <div class="absolute top-0 left-0 w-[700px] h-[700px] opacity-30 pointer-events-none z-0">
+            <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-50 80 H 120 L 170 130 V 350" stroke="#3B5BFF" stroke-width="1.5" stroke-dasharray="6 6"/>
+                <circle cx="170" cy="350" r="5" fill="#3B5BFF" />
+                <path d="M-50 140 H 80 L 130 190 V 550" stroke="#3B5BFF" stroke-width="1.5" />
+                <circle cx="130" cy="550" r="4" fill="#3B5BFF" />
+                <path d="M-50 200 H 40 L 90 250 V 420" stroke="#3B5BFF" stroke-width="1.5" stroke-dasharray="4 4" />
+                <circle cx="90" cy="420" r="3" fill="#3B5BFF" />
+                <path d="M-50 40 H 160 L 210 90 V 200" stroke="#3B5BFF" stroke-width="1.5" opacity="0.6"/>
+                <circle cx="210" cy="200" r="3" fill="#3B5BFF" opacity="0.6"/>
+                <path d="M 60 -20 V 60 L 100 100 H 280" stroke="#3B5BFF" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+                <circle cx="60" cy="-20" r="4" fill="#3B5BFF" />
+                <path d="M-50 280 h 120 l 30 30 v 80 l 20 20 h 60" stroke="#3B5BFF" stroke-width="1.5" opacity="0.4" fill="none"/>
+                <circle cx="300" cy="80" r="1.5" fill="#3B5BFF" opacity="0.8"/>
+                <circle cx="330" cy="80" r="1.5" fill="#3B5BFF" opacity="0.8"/>
+                <circle cx="360" cy="80" r="1.5" fill="#3B5BFF" opacity="0.8"/>
+            </svg>
+        </div>
+        
+        <div class="absolute top-0 right-0 w-[700px] h-[700px] opacity-30 pointer-events-none z-0">
+            <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M750 120 H 550 L 500 170 V 350" stroke="#3B5BFF" stroke-width="1.5" />
+                <circle cx="500" cy="350" r="5" fill="#3B5BFF" />
+                <path d="M750 180 H 620 L 570 230 V 500" stroke="#3B5BFF" stroke-width="1.5" stroke-dasharray="6 6" />
+                <circle cx="570" cy="500" r="4" fill="#3B5BFF" />
+                <path d="M750 60 H 480 L 420 120 V 220" stroke="#3B5BFF" stroke-width="1.5" opacity="0.6"/>
+                <circle cx="420" cy="220" r="3" fill="#3B5BFF" opacity="0.6"/>
+                <path d="M 640 -20 V 80 L 590 130 H 450" stroke="#3B5BFF" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+                <circle cx="640" cy="-20" r="4" fill="#3B5BFF" />
+                <circle cx="350" cy="120" r="1.5" fill="#3B5BFF" opacity="0.8"/>
+                <circle cx="380" cy="120" r="1.5" fill="#3B5BFF" opacity="0.8"/>
+                <circle cx="410" cy="120" r="1.5" fill="#3B5BFF" opacity="0.8"/>
+            </svg>
+        </div>
+
+        <div class="max-w-[1536px] mx-auto px-6 lg:px-12 relative z-10">
+
+            <div class="text-center mb-12">
+                <span class="text-[#3B5BFF] text-sm font-semibold tracking-wider uppercase mb-3 block">CHOOSE YOUR PROGRAM</span>
+                <h2 class="text-[38px] md:text-[44px] font-bold text-gray-900 tracking-tight mb-4">
+                    Choose the Program That <span class="primary-gradient">Shapes Your Future</span>
+                </h2>
+                <p class="text-gray-500 text-[17px] max-w-2xl mx-auto leading-relaxed">
+                    Explore industry-aligned programs designed to build future-ready skills and accelerate your career.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full mb-14 relative z-10" id="tab-container">
+                
+                <button onclick="switchProgram('mca')" id="tab-mca" class="tab-button selected relative bg-white rounded-3xl p-7 flex flex-col items-center text-center cursor-pointer border-2 border-[#3B5BFF] shadow-tab transform transition-all duration-300">
+                    <div class="active-badge absolute top-4 right-4 bg-[#3B5BFF] w-6 h-6 rounded-full flex items-center justify-center text-white">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="icon-box w-[68px] h-[68px] rounded-2xl bg-[#EEF2FF] flex items-center justify-center text-[#3B5BFF] mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-[20px] font-bold mb-1 title-text text-[#3B5BFF]">MCA</h3>
+                    <p class="text-[16px] duration-text text-[#3B5BFF] font-medium">2 Years</p>
+                    <div class="tab-underline"></div>
+                    <div class="tab-pointer"></div>
+                </button>
+
+                <button onclick="switchProgram('integrated')" id="tab-integrated" class="tab-button relative bg-white rounded-3xl p-7 flex flex-col items-center text-center cursor-pointer border-2 border-white hover:border-[#3B5BFF]/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-tab group">
+                    <div class="active-badge hidden absolute top-4 right-4 bg-[#3B5BFF] w-6 h-6 rounded-full items-center justify-center text-white">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="icon-box w-[68px] h-[68px] rounded-2xl bg-[#F4F6FF] group-hover:bg-[#EEF2FF] flex items-center justify-center text-[#4A65FF] mb-4 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14v6"></path></svg>
+                    </div>
+                    <h3 class="text-[20px] font-bold mb-1 title-text text-gray-900 group-hover:text-[#3B5BFF]">Integrated MCA</h3>
+                    <p class="text-[16px] duration-text text-gray-500 group-hover:text-[#3B5BFF]">5 Years</p>
+                    <div class="tab-underline"></div>
+                    <div class="tab-pointer"></div>
+                </button>
+
+                <button onclick="switchProgram('professional')" id="tab-professional" class="tab-button relative bg-white rounded-3xl p-7 flex flex-col items-center text-center cursor-pointer border-2 border-white hover:border-[#3B5BFF]/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-tab group">
+                    <div class="active-badge hidden absolute top-4 right-4 bg-[#3B5BFF] w-6 h-6 rounded-full items-center justify-center text-white">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="icon-box w-[68px] h-[68px] rounded-2xl bg-[#F4F6FF] group-hover:bg-[#EEF2FF] flex items-center justify-center text-[#4A65FF] mb-4 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-[20px] font-bold mb-1 title-text text-gray-900 group-hover:text-[#3B5BFF] leading-tight">MCA <span class="font-normal text-[16px] block lg:inline">(Working Professionals)</span></h3>
+                    <p class="text-[16px] duration-text text-gray-500 group-hover:text-[#3B5BFF]">Weekend Program</p>
+                    <div class="tab-underline"></div>
+                    <div class="tab-pointer"></div>
+                </button>
+
+                <button onclick="switchProgram('phd')" id="tab-phd" class="tab-button relative bg-white rounded-3xl p-7 flex flex-col items-center text-center cursor-pointer border-2 border-white hover:border-[#3B5BFF]/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-tab group">
+                    <div class="active-badge hidden absolute top-4 right-4 bg-[#3B5BFF] w-6 h-6 rounded-full items-center justify-center text-white">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="icon-box w-[68px] h-[68px] rounded-2xl bg-[#F4F6FF] group-hover:bg-[#EEF2FF] flex items-center justify-center text-[#4A65FF] mb-4 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                    </div>
+                    <h3 class="text-[20px] font-bold mb-1 title-text text-gray-900 group-hover:text-[#3B5BFF]">PhD</h3>
+                    <p class="text-[16px] duration-text text-gray-500 group-hover:text-[#3B5BFF]">Doctorate Program</p>
+                    <div class="tab-underline"></div>
+                    <div class="tab-pointer"></div>
+                </button>
+            </div>
+
+            <div class="bg-white rounded-[32px] p-8 lg:p-10 shadow-content border border-[#E6E8EC] flex flex-col lg:flex-row gap-8 relative z-20 overflow-hidden">
+                
+                <div class="w-full lg:w-[32%] flex flex-col gap-6">
+                    
+                    <div class="w-full rounded-2xl flex items-center justify-center relative h-[250px] overflow-hidden bg-gradient-to-b from-[#F4F7FF] to-white shadow-inner">
+                        <img id="content-image" src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=800&q=80" alt="Program Graphic" class="w-full h-full object-cover mix-blend-multiply" />
+                        <div class="absolute inset-0 bg-blue-50/10 mix-blend-color-burn rounded-2xl pointer-events-none"></div>
+                    </div>
+
+                    <div class="bg-[#F4F7FF] border border-[#E5E9FF] rounded-2xl p-6 shadow-[0_4px_15px_rgba(0,0,0,0.02)]">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-8 h-8 rounded-full bg-[#3B5BFF] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(59,91,255,0.3)]">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-[#1A1D1F] font-bold text-[17px]">Why Choose This Program?</h4>
+                        </div>
+                        
+                        <ul id="why-choose-list" class="space-y-3.5">
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-[42%] flex flex-col justify-start pt-2">
+                    <h2 id="content-title" class="text-[34px] font-bold text-[#1A1D1F] leading-tight mb-1">MCA</h2>
+                    <p id="content-subtitle" class="text-gray-600 text-[18px] mb-5">Master of Computer Applications</p>
+
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span id="badge-duration" class="bg-[#F4F6FF] text-[#3B5BFF] border border-[#E5E9FF] px-4 py-1.5 rounded-full text-[13px] font-semibold tracking-wide">2 Years</span>
+                        <span id="badge-mode" class="bg-[#F4F6FF] text-[#3B5BFF] border border-[#E5E9FF] px-4 py-1.5 rounded-full text-[13px] font-semibold tracking-wide">Full Time</span>
+                    </div>
+
+                    <p id="content-desc" class="text-[#6F767E] text-[16px] leading-relaxed mb-8 max-w-xl">
+                        Build a strong foundation in computer applications and software development. Our MCA program equips you with the skills needed to thrive in the tech industry.
+                    </p>
+
+                    <h4 class="font-bold text-[#1A1D1F] text-[18px] mb-6">Program Highlights</h4>
+                    <div class="flex flex-wrap items-start justify-between gap-y-6" id="highlight-container">
+                        </div>
+
+                    <div class="flex flex-wrap items-center gap-4 mt-auto pt-8">
+                        <button class="bg-[#3B5BFF] hover:bg-blue-700 text-white font-medium px-8 py-3.5 rounded-xl flex items-center gap-2 transition shadow-md shadow-[#3B5BFF]/20">
+                            Apply Now
+                            <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                        <button class="bg-white border border-[#E6E8EC] hover:border-[#3B5BFF] text-[#3B5BFF] font-medium px-8 py-3.5 rounded-xl flex items-center gap-2 transition">
+                            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Download Brochure
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-[26%] bg-[#F8FAFC] border border-[#E6E8EC] rounded-2xl p-7 flex flex-col gap-6 h-max" id="key-info-list">
+                    </div>
+
+            </div>
+        </div>
+    </section>
+
+  
+
+<section class="w-full h-auto py-8 lg:py-12 flex items-center bg-[#040A18] relative overflow-hidden font-sans antialiased text-white">
+        
+        <div class="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#7B8CFF]/15 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#C084FF]/15 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <svg width="0" height="0" class="hidden">
+            <defs>
+                <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7B8CFF" stop-opacity="0.8" />
+                    <stop offset="100%" stop-color="#C084FF" stop-opacity="0.8" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <div class="max-w-[1536px] w-full mx-auto px-8 lg:px-16 relative z-10 flex flex-col lg:flex-row items-center justify-between">
+            
+            <div class="w-full lg:w-[35%] flex flex-col h-full justify-center">
+                
+                <div class="mb-8">
+                    <span class="text-gray-300 text-[12px] font-bold tracking-[0.15em] uppercase mb-3 block">
+                        WHY CHOOSE US
+                    </span>
+                    
+                    <h2 class="text-[44px] xl:text-[52px] font-bold leading-[1.15] tracking-tight mb-4">
+                        <span class="text-white">Why Choose</span><br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7B8CFF] to-[#C084FF]">
+                            TIMSCDR?
+                        </span>
+                    </h2>
+                    
+                    <p class="text-gray-300 text-[18px] xl:text-[20px] leading-relaxed mb-4 max-w-[320px]">
+                        Industry-aligned learning with real career outcomes.
+                    </p>
+                    
+                    <div class="w-12 h-[3px] bg-gradient-to-r from-[#7B8CFF] to-[#C084FF] rounded-full"></div>
+                </div>
+
+                <div class="relative w-full max-w-[360px] h-[300px] mt-4 flex items-end justify-center">
+                    
+                    <div class="podium-ring bottom-2 w-[300px] h-[70px] border border-[#7B8CFF]/20 shadow-[0_0_30px_rgba(123,140,255,0.2)]"></div>
+                    <div class="podium-ring bottom-6 w-[240px] h-[55px] border border-[#B670FF]/30 shadow-[0_0_30px_rgba(182,112,255,0.3)]"></div>
+                    <div class="podium-ring bottom-10 w-[180px] h-[40px] border-2 border-[#C084FF]/60 shadow-[0_0_40px_rgba(192,132,255,0.6)] bg-[#C084FF]/10"></div>
+                    <div class="podium-ring bottom-[52px] w-[140px] h-[25px] border border-white/50 bg-white/10 shadow-[0_0_20px_rgba(255,255,255,0.8)]"></div>
+                    
+                    <div class="absolute bottom-[70px] left-1/2 -translate-x-1/2 z-10 text-white drop-shadow-[0_0_20px_rgba(123,140,255,0.8)]">
+                        <svg class="w-32 h-32 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M12 14v6"></path>
+                        </svg>
+                    </div>
+
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 360 300">
+                        <path d="M180 180 L 80 120" stroke="#7B8CFF" stroke-width="1" opacity="0.3" stroke-dasharray="4 4"/>
+                        <path d="M180 180 L 130 60" stroke="#7B8CFF" stroke-width="1" opacity="0.3" stroke-dasharray="4 4"/>
+                        <path d="M180 180 L 260 100" stroke="#7B8CFF" stroke-width="1" opacity="0.3" stroke-dasharray="4 4"/>
+                    </svg>
+
+                    <div class="absolute top-[35%] left-[5%] w-[42px] h-[42px] rounded-full border border-[#7B8CFF]/50 bg-[#040A18] flex items-center justify-center shadow-[0_0_15px_rgba(123,140,255,0.4)] animate-float" style="animation-delay: 0s;">
+                        <svg class="w-4 h-4 text-[#7B8CFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    
+                    <div class="absolute top-[10%] left-[25%] w-[38px] h-[38px] rounded-full border border-[#C084FF]/50 bg-[#040A18] flex items-center justify-center shadow-[0_0_15px_rgba(192,132,255,0.4)] animate-float" style="animation-delay: 1s;">
+                        <svg class="w-4 h-4 text-[#C084FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    
+                    <div class="absolute top-[25%] right-[15%] w-[42px] h-[42px] rounded-full border border-[#B670FF]/50 bg-[#040A18] flex items-center justify-center shadow-[0_0_15px_rgba(182,112,255,0.4)] animate-float" style="animation-delay: 0.5s;">
+                        <svg class="w-5 h-5 text-[#B670FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+
+                    <div class="absolute top-[65%] left-[2%] w-[32px] h-[32px] rounded-full border border-[#7B8CFF]/50 bg-[#040A18] flex items-center justify-center shadow-[0_0_15px_rgba(123,140,255,0.4)] animate-float" style="animation-delay: 1.5s;">
+                        <svg class="w-3 h-3 text-[#7B8CFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+
+                    <div class="absolute top-[50%] right-[5%] w-[36px] h-[36px] rounded-full border border-[#C084FF]/50 bg-[#040A18] flex items-center justify-center shadow-[0_0_15px_rgba(192,132,255,0.4)] animate-float" style="animation-delay: 2s;">
+                        <svg class="w-4 h-4 text-[#C084FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-[60%] border-l border-[#2A3158]/60 pl-8 lg:pl-12 py-2">
+                
+                <div class="grid grid-cols-2 w-full">
+                    
+                    <div class="border-r border-b border-[#2A3158]/60 pr-6 xl:pr-10 pb-6 xl:pb-8 flex items-start gap-5">
+                        <div class="relative w-[56px] h-[56px] xl:w-[64px] xl:h-[64px] flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full drop-shadow-[0_0_10px_rgba(123,140,255,0.3)]">
+                                <polygon points="50 5, 93 25, 93 75, 50 95, 7 75, 7 25" fill="#040A18" stroke="url(#hexGrad)" stroke-width="2"/>
+                            </svg>
+                            <svg class="w-6 h-6 xl:w-7 xl:h-7 text-[#A370FF] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div class="flex flex-col mt-1 xl:mt-2">
+                            <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Industry-Aligned Curriculum</h4>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Designed with industry insights to keep you future-ready.</p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-[#2A3158]/60 pl-6 xl:pl-10 pb-6 xl:pb-8 flex items-start gap-5">
+                        <div class="relative w-[56px] h-[56px] xl:w-[64px] xl:h-[64px] flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full drop-shadow-[0_0_10px_rgba(182,112,255,0.3)]">
+                                <polygon points="50 5, 93 25, 93 75, 50 95, 7 75, 7 25" fill="#040A18" stroke="url(#hexGrad)" stroke-width="2"/>
+                            </svg>
+                            <svg class="w-6 h-6 xl:w-7 xl:h-7 text-[#7B8CFF] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11l1.5 1.5L16 10"></path></svg>
+                        </div>
+                        <div class="flex flex-col mt-1 xl:mt-2">
+                            <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Expert Faculty</h4>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Learn from experienced academicians and industry professionals.</p>
+                        </div>
+                    </div>
+
+                    <div class="border-r border-b border-[#2A3158]/60 pr-6 xl:pr-10 py-6 xl:py-8 flex items-start gap-5">
+                        <div class="relative w-[56px] h-[56px] xl:w-[64px] xl:h-[64px] flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full drop-shadow-[0_0_10px_rgba(123,140,255,0.3)]">
+                                <polygon points="50 5, 93 25, 93 75, 50 95, 7 75, 7 25" fill="#040A18" stroke="url(#hexGrad)" stroke-width="2"/>
+                            </svg>
+                            <svg class="w-6 h-6 xl:w-7 xl:h-7 text-[#C084FF] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <div class="flex flex-col mt-1 xl:mt-2">
+                            <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Hands-on Learning</h4>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Practical approach with projects and real-world problem solving.</p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-[#2A3158]/60 pl-6 xl:pl-10 py-6 xl:py-8 flex items-start gap-5">
+                        <div class="relative w-[56px] h-[56px] xl:w-[64px] xl:h-[64px] flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full drop-shadow-[0_0_10px_rgba(182,112,255,0.3)]">
+                                <polygon points="50 5, 93 25, 93 75, 50 95, 7 75, 7 25" fill="#040A18" stroke="url(#hexGrad)" stroke-width="2"/>
+                            </svg>
+                            <svg class="w-6 h-6 xl:w-7 xl:h-7 text-[#7B8CFF] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div class="flex flex-col mt-1 xl:mt-2">
+                            <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Modern Infrastructure</h4>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">State-of-the-art labs and technology for immersive learning.</p>
+                        </div>
+                    </div>
+
+                    <div class="border-r border-[#2A3158]/60 pr-6 xl:pr-10 pt-6 xl:pt-8 flex items-start gap-5">
+                        <div class="relative w-[56px] h-[56px] xl:w-[64px] xl:h-[64px] flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full drop-shadow-[0_0_10px_rgba(123,140,255,0.3)]">
+                                <polygon points="50 5, 93 25, 93 75, 50 95, 7 75, 7 25" fill="#040A18" stroke="url(#hexGrad)" stroke-width="2"/>
+                            </svg>
+                            <svg class="w-6 h-6 xl:w-7 xl:h-7 text-[#A370FF] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4"></path></svg>
+                        </div>
+                        <div class="flex flex-col mt-1 xl:mt-2">
+                            <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Career Support</h4>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Dedicated guidance for internships, placements and career growth.</p>
+                        </div>
+                    </div>
+
+                    <div class="pl-6 xl:pl-10 pt-6 xl:pt-8 flex items-start gap-5">
+                        <div class="relative w-[56px] h-[56px] xl:w-[64px] xl:h-[64px] flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full drop-shadow-[0_0_10px_rgba(182,112,255,0.3)]">
+                                <polygon points="50 5, 93 25, 93 75, 50 95, 7 75, 7 25" fill="#040A18" stroke="url(#hexGrad)" stroke-width="2"/>
+                            </svg>
+                            <svg class="w-6 h-6 xl:w-7 xl:h-7 text-[#7B8CFF] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <div class="flex flex-col mt-1 xl:mt-2">
+                            <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Strong Alumni Network</h4>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Join a vibrant community of 5000+ alumni making an impact.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<section class="dotted-bg w-full py-8 lg:py-12 relative font-sans antialiased border-t border-gray-200 overflow-hidden">
+    
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3B5BFF]/5 blur-[100px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 left-[-10%] w-[300px] h-[300px] bg-[#B670FF]/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-[1300px] mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        
+        <div class="w-full lg:w-[50%] flex flex-col justify-center">
+            <span class="text-[#3B5BFF] text-[28px] font-bold tracking-[0.1em] uppercase mb-4 block">
+                ADMISSIONS OPEN
+            </span>
+            
+            <h2 class="text-[36px] md:text-[44px] font-bold text-[#1A1D1F] leading-[1.15] tracking-tight mb-5">
+                Start Your Journey with <br class="hidden md:block"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3B5BFF] to-[#B670FF]">
+                    TIMSCDR Today.
+                </span>
+            </h2>
+            
+            <p class="text-[#6F767E] text-[16px] leading-relaxed mb-8 max-w-[440px]">
+                Take the first step towards a future-ready career. Fill out the form, and our admissions team will get in touch with you shortly.
+            </p>
+
+            <div class="flex flex-col gap-5">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#EEF2FF] flex items-center justify-center text-[#3B5BFF] shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-[#1A1D1F] font-bold text-[20px]">Secure & Confidential</h4>
+                        <p class="text-[#6F767E] text-[16px] mt-0.5">Your data is safe and never shared.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#EEF2FF] flex items-center justify-center text-[#3B5BFF] shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-[#1A1D1F] font-bold text-[20px]">Quick Response Time</h4>
+                        <p class="text-[#6F767E] text-[16px] mt-0.5">Expect a callback within 24 working hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-[45%] lg:ml-auto">
+            <div class="bg-white rounded-[24px] p-6 md:p-8 shadow-[0_20px_60px_-15px_rgba(59,91,255,0.08)] border border-[#E6E8EC] relative overflow-hidden">
+                
+                <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#3B5BFF]/10 to-transparent rounded-bl-[80px]"></div>
+
+                <form class="flex flex-col gap-2.5 relative z-10" onsubmit="event.preventDefault();">
+                    
+                    <div class="mb-1">
+                        <h3 class="text-[18px] font-bold text-[#1A1D1F]">Request Information</h3>
+                        <p class="text-[#6F767E] text-[14px] mt-0.5">Please fill in your details below.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-[16px] font-semibold text-[#1A1D1F] mb-1 ml-1">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" placeholder="John Doe" class="w-full px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all placeholder:text-gray-400 text-[16px]" required>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[16px] font-semibold text-[#1A1D1F] mb-1 ml-1">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" placeholder="john@example.com" class="w-full px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all placeholder:text-gray-400 text-[16px]" required>
+                        </div>
+                        <div>
+                            <label class="block text-[16px] font-semibold text-[#1A1D1F] mb-1 ml-1">Mobile Number <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 font-medium text-[16px] border-r border-gray-300 pr-2">+91</span>
+                                <input type="tel" placeholder="9876543210" pattern="[0-9]{10}" class="w-full pl-14 pr-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all placeholder:text-gray-400 text-[16px]" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[16px] font-semibold text-[#1A1D1F] mb-1 ml-1">Interested Program <span class="text-red-500">*</span></label>
+                        <select class="custom-select w-full px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all text-[16px]" required>
+                            <option value="" disabled selected class="text-gray-400">Select a Program</option>
+                            <option value="mca" class="text-gray-900">MCA (Master of Computer Applications)</option>
+                            <option value="integrated_mca" class="text-gray-900">Integrated MCA (5 Years)</option>
+                            <option value="mca_working_prof" class="text-gray-900">MCA for Working Professionals</option>
+                            <option value="phd" class="text-gray-900">PhD in Computer Science</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[16px] font-semibold text-[#1A1D1F] mb-1 ml-1">State <span class="text-red-500">*</span></label>
+                            <select class="custom-select w-full px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all text-[16px]" required>
+                                <option value="" disabled selected>Select State</option>
+                                <option value="andhra-pradesh">Andhra Pradesh</option>
+                                <option value="arunachal-pradesh">Arunachal Pradesh</option>
+                                <option value="assam">Assam</option>
+                                <option value="bihar">Bihar</option>
+                                <option value="chhattisgarh">Chhattisgarh</option>
+                                <option value="goa">Goa</option>
+                                <option value="gujarat">Gujarat</option>
+                                <option value="haryana">Haryana</option>
+                                <option value="himachal-pradesh">Himachal Pradesh</option>
+                                <option value="jharkhand">Jharkhand</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="madhya-pradesh">Madhya Pradesh</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="manipur">Manipur</option>
+                                <option value="meghalaya">Meghalaya</option>
+                                <option value="mizoram">Mizoram</option>
+                                <option value="nagaland">Nagaland</option>
+                                <option value="odisha">Odisha</option>
+                                <option value="punjab">Punjab</option>
+                                <option value="rajasthan">Rajasthan</option>
+                                <option value="sikkim">Sikkim</option>
+                                <option value="tamil-nadu">Tamil Nadu</option>
+                                <option value="telangana">Telangana</option>
+                                <option value="tripura">Tripura</option>
+                                <option value="uttar-pradesh">Uttar Pradesh</option>
+                                <option value="uttarakhand">Uttarakhand</option>
+                                <option value="west-bengal">West Bengal</option>
+                                <option value="andaman-nicobar">Andaman and Nicobar Islands</option>
+                                <option value="chandigarh">Chandigarh</option>
+                                <option value="dadra-nagar-haveli">Dadra and Nagar Haveli and Daman and Diu</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="jammu-kashmir">Jammu and Kashmir</option>
+                                <option value="ladakh">Ladakh</option>
+                                <option value="lakshadweep">Lakshadweep</option>
+                                <option value="puducherry">Puducherry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[16px] font-semibold text-[#1A1D1F] mb-1 ml-1">City <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="Enter City" class="w-full px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all placeholder:text-gray-400 text-[16px]" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-0 p-2.5 bg-[#F8FAFC] border border-[#E6E8EC] rounded-xl flex items-center justify-between shadow-sm">
+                        <div class="flex items-center gap-3 cursor-pointer">
+                            <input type="checkbox" id="captcha" class="custom-checkbox" required>
+                            <label for="captcha" class="text-[16px] text-[#1A1D1F] font-medium cursor-pointer select-none">I'm not a robot</label>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <svg class="w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 12A9 9 0 013.1 13.5l1.6-1.6A6.8 6.8 0 0012 18.8c3.8 0 6.8-3.1 6.8-6.8S15.8 5.3 12 5.3V2.5A9 9 0 0121 12zm-9-4v3.8l2.7 2.7 1.6-1.6-3.2-3.2V8h-2.3z"/>
+                                <path d="M12 2A10 10 0 1022 12 10 10 0 0012 2zm0 18A8 8 0 1120 12 8 8 0 0112 20z" opacity="0.3"/>
+                            </svg>
+                            <span class="text-[8px] text-gray-400 mt-0.5">reCAPTCHA</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 mt-0">
+                        <input type="checkbox" id="consent" class="custom-checkbox shrink-0 mt-[3px]" required>
+                        <label for="consent" class="text-[16px] text-[#6F767E] leading-[1.5] cursor-pointer select-none">
+                            I authorize TIMSCDR to contact me via email, SMS, and WhatsApp regarding my application. I agree to the <a href="#" class="text-[#3B5BFF] hover:underline font-medium">Privacy Policy</a> & <a href="#" class="text-[#3B5BFF] hover:underline font-medium">Terms</a>.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="mt-1 w-full bg-[#3B5BFF] hover:bg-blue-700 text-white font-bold text-[15px] py-2.5 rounded-xl shadow-[0_8px_20px_rgba(59,91,255,0.25)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2 group">
+                        Submit Application
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+</body>
+
+<script>
+    const programData = {
+        mca: {
+            title: 'MCA',
+            subtitle: 'Master of Computer Applications',
+            duration: '2 Years',
+            mode: 'Full Time',
+            image: 'mca.jpeg',
+            desc: 'Build a strong foundation in computer applications and software development. Our MCA program equips you with the skills needed to thrive in the tech industry.',
+            highlights: [
+                { icon: 'shield', text1: 'AICTE Approved', text2: 'Curriculum' },
+                { icon: 'users', text1: 'Industry-Relevant', text2: 'Skills' },
+                { icon: 'code', text1: 'Hands-on', text2: 'Projects' },
+                { icon: 'expert', text1: 'Expert', text2: 'Faculty' },
+                { icon: 'placement', text1: 'Placement', text2: 'Assistance' }
+            ],
+            keyInfo: [
+                { icon: 'calendar', label: 'Duration', value: '2 Years' },
+                { icon: 'eligibility', label: 'Eligibility', value: 'Graduation with 50% marks' },
+                { icon: 'users', label: 'Intake', value: '120 Seats' },
+                { icon: 'clock', label: 'Mode', value: 'Full Time' },
+                { icon: 'rupee', label: 'Fees', value: '₹ 1,20,000 / Year' }
+            ],
+            whyChoose: [
+                "Comprehensive coverage of core CS concepts",
+                "Hands-on coding and development labs",
+                "100% placement assistance program",
+                "Industry-aligned capstone projects"
+            ]
+        },
+        integrated: {
+            title: 'Integrated MCA',
+            subtitle: 'BCA + MCA Integrated Program',
+            duration: '5 Years',
+            mode: 'Full Time',
+            image: 'INT.jpeg',
+            desc: 'A seamless 5-year journey from Class 12 to a Master\'s degree, designed to build core computing skills and advanced expertise early in your academic life.',
+            highlights: [
+                { icon: 'shield', text1: 'Post-12th', text2: 'Entry' },
+                { icon: 'code', text1: 'Tech-First', text2: 'Curriculum' },
+                { icon: 'users', text1: 'Faster', text2: 'Graduation' },
+                { icon: 'expert', text1: 'Expert', text2: 'Mentors' },
+                { icon: 'placement', text1: 'Global', text2: 'Opportunities' }
+            ],
+            keyInfo: [
+                { icon: 'calendar', label: 'Duration', value: '5 Years' },
+                { icon: 'eligibility', label: 'Eligibility', value: 'Class 12th with 50% marks' },
+                { icon: 'users', label: 'Intake', value: '60 Seats' },
+                { icon: 'clock', label: 'Mode', value: 'Full Time' },
+                { icon: 'rupee', label: 'Fees', value: '₹ 1,10,000 / Year' }
+            ],
+            whyChoose: [
+                "Save 1 year of academic time and fees",
+                "Seamless transition from UG to PG level",
+                "Early exposure to advanced technologies",
+                "Strong foundation in mathematics and logic"
+            ]
+        },
+        professional: {
+            title: 'MCA (Working Professionals)',
+            subtitle: 'Master of Computer Applications',
+            duration: '2 Years',
+            mode: 'Weekend',
+            image: 'WP.jpeg',
+            desc: 'Designed for working techies who want to upskill without pausing their career. Practical, project-based learning focused on the latest industry demands.',
+            highlights: [
+                { icon: 'clock', text1: 'Flexible', text2: 'Schedule' },
+                { icon: 'expert', text1: 'Upskill While', text2: 'Working' },
+                { icon: 'code', text1: 'Case Study', text2: 'Focus' },
+                { icon: 'shield', text1: 'Industry', text2: 'Recognition' },
+                { icon: 'users', text1: 'Peer', text2: 'Networking' }
+            ],
+            keyInfo: [
+                { icon: 'calendar', label: 'Duration', value: '2 Years' },
+                { icon: 'eligibility', label: 'Eligibility', value: 'IT Bachelor\'s + Experience' },
+                { icon: 'users', label: 'Intake', value: '60 Seats' },
+                { icon: 'clock', label: 'Mode', value: 'Weekend Program' },
+                { icon: 'rupee', label: 'Fees', value: '₹ 1,50,000 / Year' }
+            ],
+            whyChoose: [
+                "Weekend classes tailored for professionals",
+                "Industry-relevant advanced curriculum",
+                "Learn directly from experienced tech leaders",
+                "Career growth with highly in-demand skills"
+            ]
+        },
+        phd: {
+            title: 'PhD',
+            subtitle: 'Doctorate in Computer Science',
+            duration: '3-5 Years',
+            mode: 'Research',
+            image: '/PHD.jpeg',
+            desc: 'Advance knowledge in Computer Applications through rigorous research. Ideal for candidates aiming for academic excellence or high-end R&D roles in industry.',
+            highlights: [
+                { icon: 'shield', text1: 'Research', text2: 'Focus' },
+                { icon: 'code', text1: 'Advanced', text2: 'Labs' },
+                { icon: 'expert', text1: 'Publication', text2: 'Support' },
+                { icon: 'users', text1: 'Expert', text2: 'Mentors' },
+                { icon: 'placement', text1: 'Fellowship', text2: 'Opportunities' }
+            ],
+            keyInfo: [
+                { icon: 'calendar', label: 'Duration', value: '3-5 Years' },
+                { icon: 'eligibility', label: 'Eligibility', value: 'Master\'s Degree' },
+                { icon: 'users', label: 'Intake', value: 'As per norms' },
+                { icon: 'clock', label: 'Mode', value: 'Full/Part Time' },
+                { icon: 'rupee', label: 'Fees', value: 'As per University' }
+            ],
+            whyChoose: [
+                "Access to dedicated state-of-the-art research labs",
+                "Expert faculty guidance and 1-on-1 mentorship",
+                "Extensive support for global publications",
+                "Opportunities for collaborative R&D with industry"
+            ]
+        }
+    };
+
+    // UI Icons Dictionary
+    const hlIcons = {
+        shield: '<svg class="w-[28px] h-[28px] text-[#3B5BFF] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8l1.5 3 3 .5-2 2 .5 3-3-1.5-3 1.5.5-3-2-2 3-.5z"></path></svg>',
+        users: '<svg class="w-[28px] h-[28px] text-[#3B5BFF] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>',
+        code: '<svg class="w-[28px] h-[28px] text-[#3B5BFF] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>',
+        expert: '<svg class="w-[28px] h-[28px] text-[#3B5BFF] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11l1.5 1.5L16 10"></path></svg>',
+        placement: '<svg class="w-[28px] h-[28px] text-[#3B5BFF] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>',
+        clock: '<svg class="w-[28px] h-[28px] text-[#3B5BFF] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+    };
+
+    const keyIcons = {
+        calendar: '<svg class="w-[20px] h-[20px] text-[#3B5BFF] mt-[2px] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>',
+        eligibility: '<svg class="w-[20px] h-[20px] text-[#3B5BFF] mt-[2px] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>',
+        users: '<svg class="w-[20px] h-[20px] text-[#3B5BFF] mt-[2px] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>',
+        clock: '<svg class="w-[20px] h-[20px] text-[#3B5BFF] mt-[2px] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+        rupee: '<svg class="w-[20px] h-[20px] text-[#3B5BFF] mt-[2px] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m-6 4h6m-6 4h6M6 21h12M9 11v6m0-6a3 3 0 013-3h3m-6 7a3 3 0 003 3h3"></path><text x="9" y="16" font-family="sans-serif" font-size="12" fill="currentColor" stroke="none">₹</text></svg>'
+    };
+
+    // Render logic
+    function renderContent(data) {
+        document.getElementById('content-title').innerHTML = data.title;
+        document.getElementById('content-subtitle').innerHTML = data.subtitle;
+        document.getElementById('badge-duration').innerText = data.duration;
+        document.getElementById('badge-mode').innerText = data.mode;
+        document.getElementById('content-desc').innerText = data.desc;
+        document.getElementById('content-image').src = data.image;
+
+        const hlContainer = document.getElementById('highlight-container');
+        hlContainer.innerHTML = '';
+        data.highlights.forEach(hl => {
+            hlContainer.innerHTML += `
+                <div class="flex flex-col items-center text-center w-[18%]">
+                    ${hlIcons[hl.icon]}
+                    <span class="text-[#1A1D1F] font-semibold text-[16px] leading-tight mb-1">${hl.text1}</span>
+                    <span class="text-[#6F767E] text-[16px] leading-tight">${hl.text2}</span>
+                </div>
+            `;
+        });
+
+        const infoList = document.getElementById('key-info-list');
+        infoList.innerHTML = '';
+        data.keyInfo.forEach(info => {
+            infoList.innerHTML += `
+                <div class="flex items-start gap-4">
+                    ${keyIcons[info.icon]}
+                    <div class="flex flex-col w-24 shrink-0">
+                        <span class="text-[#6F767E] text-[16px]">${info.label}</span>
+                    </div>
+                    <span class="text-[#1A1D1F] font-medium text-[16px] leading-tight">${info.value}</span>
+                </div>
+            `;
+        });
+
+        // New Why Choose List mapping
+        const whyChooseList = document.getElementById('why-choose-list');
+        whyChooseList.innerHTML = '';
+        data.whyChoose.forEach(point => {
+            whyChooseList.innerHTML += `
+                <li class="flex items-start gap-3">
+                    <svg class="w-[18px] h-[18px] text-[#3B5BFF] shrink-0 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    <span class="text-[#4A5568] text-[16px] leading-snug">${point}</span>
+                </li>
+            `;
+        });
+    }
+
+    // Toggle selected tabs
+    function switchProgram(programId) {
+        document.querySelectorAll('.tab-button').forEach(tab => {
+            tab.classList.remove('selected', 'border-[#3B5BFF]', 'shadow-tab');
+            tab.classList.add('border-white', 'hover:border-[#3B5BFF]/30');
+            tab.querySelector('.icon-box').classList.remove('bg-[#EEF2FF]', 'text-[#3B5BFF]');
+            tab.querySelector('.icon-box').classList.add('bg-[#F4F6FF]', 'text-[#4A65FF]');
+            tab.querySelector('.title-text').classList.remove('text-[#3B5BFF]');
+            const badge = tab.querySelector('.active-badge');
+            badge.classList.remove('flex');
+            badge.classList.add('hidden');
+        });
+
+        const activeTab = document.getElementById('tab-' + programId);
+        activeTab.classList.add('selected', 'border-[#3B5BFF]', 'shadow-tab');
+        activeTab.classList.remove('border-white', 'hover:border-[#3B5BFF]/30');
+        activeTab.querySelector('.icon-box').classList.add('bg-[#EEF2FF]', 'text-[#3B5BFF]');
+        activeTab.querySelector('.icon-box').classList.remove('bg-[#F4F6FF]', 'text-[#4A65FF]');
+        activeTab.querySelector('.title-text').classList.add('text-[#3B5BFF]');
+        const activeBadge = activeTab.querySelector('.active-badge');
+        activeBadge.classList.remove('hidden');
+        activeBadge.classList.add('flex');
+
+        renderContent(programData[programId]);
+    }
+
+    // Init display
+    renderContent(programData.mca);
+
+    // Apply Now button functionality - Simple and direct approach
+    function scrollToForm() {
+        // Find the form section by looking for the section with the form
+        const formSection = document.querySelector('section:has(form)');
+        if (!formSection) {
+            // Fallback - find by text content
+            const sections = document.querySelectorAll('section');
+            for (let section of sections) {
+                if (section.textContent.includes('Request Information')) {
+                    formSection = section;
+                    break;
+                }
+            }
+        }
+        
+        if (formSection) {
+            // Smooth scroll to form
+            formSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            
+            // Find and increase form width after scroll
+            setTimeout(() => {
+                const formContainer = formSection.querySelector('.lg\\:w-\\[45%\\]');
+                if (formContainer) {
+                    formContainer.classList.remove('lg:w-[45%]');
+                    formContainer.classList.add('lg:w-[60%]');
+                    console.log('Form width increased!');
+                }
+            }, 1000);
+        }
+    }
+
+    // Add click handlers to Apply Now buttons using a more direct approach
+    document.addEventListener('click', function(e) {
+        // Check if clicked element is a button or contains "Apply Now" text
+        if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+            const button = e.target.tagName === 'BUTTON' ? e.target : e.target.closest('button');
+            const buttonText = button.textContent.trim();
+            
+            if (buttonText.includes('Apply Now')) {
+                e.preventDefault();
+                console.log('Apply Now button clicked!');
+                scrollToForm();
+            }
+        }
+    });
+
+    // Also add direct event listeners to buttons found on page load
+    setTimeout(() => {
+        const applyButtons = Array.from(document.querySelectorAll('button')).filter(btn => 
+            btn.textContent.includes('Apply Now')
+        );
+        
+        console.log('Found Apply Now buttons:', applyButtons.length);
+        
+        applyButtons.forEach((button, index) => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log(`Apply Now button ${index + 1} clicked directly!`);
+                scrollToForm();
+            });
+        });
+    }, 500);
+</script>
+</html>
