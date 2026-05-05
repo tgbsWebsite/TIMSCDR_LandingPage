@@ -219,6 +219,9 @@
     }
     .marquee-track:hover .marquee-inner { animation-play-state: paused; }
 </style>
+
+
+
 </head>
 <body>
 
@@ -267,7 +270,7 @@
                             Apply Now
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
-                        <button class="bg-transparent border border-[#4A65FF] hover:bg-[#4A65FF]/10 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
+                        <button onclick="document.getElementById('programs-section').scrollIntoView({behavior:'smooth'})" class="bg-transparent border border-[#4A65FF] hover:bg-[#4A65FF]/10 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                             Explore Programs
                         </button>
@@ -462,7 +465,7 @@
 
    
 
-    <section class="dotted-bg w-full font-sans antialiased py-10 relative overflow-hidden border-t border-gray-200">
+    <section id="programs-section" class="dotted-bg w-full font-sans antialiased py-10 relative overflow-hidden border-t border-gray-200">
         
         <div class="absolute top-0 left-0 w-[700px] h-[700px] opacity-30 pointer-events-none z-0">
             <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1344,67 +1347,379 @@
   </div>
 </div>
 
+
+<!-- ========================================== -->
+<!-- SECTION 6: ADMISSION PROCESS               -->
+<!-- ========================================== -->
+<section class="w-full bg-[#F8FAFC] py-16 font-sans antialiased border-gray-200 relative overflow-hidden">
+
+    <!-- Tech Background: Flowing circuit traces -->
+    <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.08]">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left side circuit traces -->
+            <path d="M0 80 H 80 L 120 120 V 200 L 160 240 H 280" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="280" cy="240" r="4" fill="#3B5BFF"/>
+            <rect x="276" cy="236" width="8" height="8" rx="1" fill="none" stroke="#3B5BFF" stroke-width="1"/>
+
+            <path d="M0 180 H 60 L 100 220 V 320 L 140 360 H 220 L 260 320 V 260" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="260" cy="260" r="3" fill="#3B5BFF"/>
+
+            <path d="M0 320 H 40 L 80 280 H 180 L 220 240 V 160" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="220" cy="160" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="220" cy="160" r="1.5" fill="#3B5BFF"/>
+
+            <!-- IC chip left -->
+            <rect x="60" y="380" width="60" height="40" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="60" y1="390" x2="48" y2="390" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="60" y1="400" x2="48" y2="400" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="60" y1="410" x2="48" y2="410" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="120" y1="390" x2="132" y2="390" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="120" y1="400" x2="132" y2="400" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="120" y1="410" x2="132" y2="410" stroke="#3B5BFF" stroke-width="1"/>
+            <path d="M132 400 H 200 L 240 360 V 280" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="240" cy="280" r="3" fill="#3B5BFF"/>
+
+            <!-- Right side circuit traces -->
+            <path d="M100% 60 H calc(100% - 80px) L calc(100% - 120px) 100 V 200 L calc(100% - 160px) 240 H calc(100% - 280px)" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+
+            <!-- Using fixed right-side coords -->
+            <path d="M1600 60 H 1520 L 1480 100 V 200 L 1440 240 H 1320" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1320" cy="240" r="4" fill="#3B5BFF"/>
+
+            <path d="M1600 200 H 1540 L 1500 240 V 340 L 1460 380 H 1380" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="1380" cy="380" r="3" fill="#3B5BFF"/>
+
+            <path d="M1600 380 H 1560 L 1520 340 H 1420 L 1380 300 V 220" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1380" cy="220" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="1380" cy="220" r="1.5" fill="#3B5BFF"/>
+
+            <!-- IC chip right -->
+            <rect x="1420" y="420" width="60" height="40" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="1420" y1="430" x2="1408" y2="430" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1420" y1="440" x2="1408" y2="440" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1420" y1="450" x2="1408" y2="450" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="430" x2="1492" y2="430" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="440" x2="1492" y2="440" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="450" x2="1492" y2="450" stroke="#3B5BFF" stroke-width="1"/>
+
+            <!-- Top center arch trace -->
+            <path d="M 500 0 V 40 L 560 100 H 700 L 760 40 V 0" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 5"/>
+            <circle cx="500" cy="0" r="3" fill="#3B5BFF"/>
+            <circle cx="760" cy="0" r="3" fill="#3B5BFF"/>
+
+            <!-- Bottom center trace -->
+            <path d="M 600 600 V 560 L 660 500 H 800 L 860 560 V 600" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 5"/>
+            <circle cx="730" cy="500" r="5" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="730" cy="500" r="2" fill="#3B5BFF"/>
+
+            <!-- ===== EXTRA LEFT TRACES ===== -->
+            <path d="M0 420 H 55 L 95 380 V 300 L 135 260 H 230" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="230" cy="260" r="3" fill="#3B5BFF"/>
+            <path d="M0 520 H 70 L 110 480 H 190 L 230 440 V 360" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="230" cy="360" r="4" fill="#3B5BFF"/>
+            <rect x="45" y="160" width="65" height="45" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="45" y1="172" x2="31" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="45" y1="183" x2="31" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="45" y1="194" x2="31" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="110" y1="172" x2="124" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="110" y1="183" x2="124" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="110" y1="194" x2="124" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <path d="M124 183 H 190 L 230 143 V 80" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="230" cy="80" r="3" fill="#3B5BFF"/>
+            <path d="M150 560 H 170 M 170 552 H 200 V 568 H 170 Z M 200 560 H 220" stroke="#3B5BFF" stroke-width="1.2" fill="none"/>
+            <path d="M220 560 H 250 L 270 540 V 480" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="270" cy="480" r="3" fill="#3B5BFF"/>
+
+            <!-- ===== EXTRA RIGHT TRACES ===== -->
+            <path d="M1600 440 H 1545 L 1505 400 V 320 L 1465 280 H 1370" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="1370" cy="280" r="3" fill="#3B5BFF"/>
+            <path d="M1600 540 H 1530 L 1490 500 H 1410 L 1370 460 V 380" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1370" cy="380" r="4" fill="#3B5BFF"/>
+            <rect x="1480" y="160" width="65" height="45" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="1480" y1="172" x2="1466" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="183" x2="1466" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="194" x2="1466" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1545" y1="172" x2="1559" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1545" y1="183" x2="1559" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1545" y1="194" x2="1559" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <path d="M1466 183 H 1400 L 1360 143 V 80" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1360" cy="80" r="3" fill="#3B5BFF"/>
+            <path d="M1380 560 H 1400 M 1400 552 H 1430 V 568 H 1400 Z M 1430 560 H 1450" stroke="#3B5BFF" stroke-width="1.2" fill="none"/>
+            <path d="M1450 560 H 1480 L 1500 540 V 480" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1500" cy="480" r="3" fill="#3B5BFF"/>
+
+            <!-- ===== CENTER EXTRA ===== -->
+            <path d="M 400 700 V 640 L 460 580 H 560 L 600 540 V 460 L 640 420 H 740" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+            <circle cx="740" cy="420" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="740" cy="420" r="1.5" fill="#3B5BFF"/>
+            <path d="M 1000 0 V 60 L 1060 120 H 1160 L 1200 80 V 0" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 5"/>
+            <circle cx="1000" cy="0" r="3" fill="#3B5BFF"/>
+            <circle cx="1200" cy="0" r="3" fill="#3B5BFF"/>
+            <circle cx="1130" cy="120" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="1130" cy="120" r="1.5" fill="#3B5BFF"/>
+            <path d="M 960 650 H 980 M 980 642 H 1010 V 658 H 980 Z M 1010 650 H 1030" stroke="#3B5BFF" stroke-width="1.2" fill="none"/>
+            <path d="M 1030 650 H 1060 L 1080 630 V 560" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1080" cy="560" r="3" fill="#3B5BFF"/>
+        </svg>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-4 lg:px-8 relative z-10">
+        
+            <!-- Subtle Background Accents -->
+            <div class="absolute top-[10%] left-[-5%] w-[300px] h-[300px] bg-[#3B5BFF]/5 blur-[80px] rounded-full pointer-events-none"></div>
+            <div class="absolute bottom-[10%] right-[-5%] w-[300px] h-[300px] bg-[#a06cff]/5 blur-[80px] rounded-full pointer-events-none"></div>
+
+            <!-- HEADER -->
+            <div class="mb-16 relative z-10">
+                <span class="text-[#3B5BFF] text-[28px] font-bold tracking-wider uppercase mb-2 block">
+                    ADMISSION PROCESS
+                </span>
+                <h2 class="text-[32px] md:text-[40px] font-extrabold text-[#1A1D1F] leading-tight tracking-tight mb-2 uppercase">
+                    5 Steps to Start Your Future
+                </h2>
+                <p class="text-[#6F767E] text-[17px]">
+                    Follow these simple steps to secure your admission.
+                </p>
+            </div>
+
+            <!-- PROCESS FLOW -->
+            <div class="relative w-full mb-10">
+                
+                <!-- Horizontal Connecting Line (Desktop) -->
+                <!-- The top value aligns precisely with the center of the number circles -->
+                <div class="hidden lg:block absolute top-[19px] left-[8%] right-[8%] h-[2px] bg-[#EEF2FF] z-0"></div>
+
+                <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start relative z-10 w-full gap-12 lg:gap-0">
+                    
+                    <!-- STEP 1: Start Your Application -->
+                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
+                        <!-- Number -->
+                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
+                            1
+                        </div>
+                        <!-- Icon Circle -->
+                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
+                            <!-- Laptop Icon -->
+                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide">Start Your<br/>Application</h3>
+                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Fill out the online<br/>application form<br/>quickly and easily.</p>
+                        
+                        <!-- Chevron (Desktop) -->
+                        <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Document Verification -->
+                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
+                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
+                            2
+                        </div>
+                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
+                            <!-- Document Icon -->
+                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide">Document<br/>Verification</h3>
+                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Our team will verify<br/>your documents and<br/>academic details.</p>
+                        
+                        <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: CAP Rounds -->
+                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
+                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
+                            3
+                        </div>
+                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
+                            <!-- Group Icon -->
+                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide"><br/>CAP Rounds</h3>
+                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Participate in CAP<br/>rounds and select<br/>the program that<br/>fits you best.</p>
+                        
+                        <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Seat Allotment -->
+                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
+                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
+                            4
+                        </div>
+                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
+                            <!-- Seat/Badge Icon -->
+                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide">Seat<br/>Allotment</h3>
+                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Seats are allotted<br/>based on merit,<br/>preferences and<br/>availability.</p>
+                        
+                        <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Admission Reporting -->
+                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
+                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
+                            5
+                        </div>
+                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
+                            <!-- Building Icon -->
+                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide">Admission<br/>Reporting</h3>
+                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Complete the reporting<br/>formalities to confirm<br/>your admission.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BOTTOM BANNER -->
+         
+
+        </div>
+</section>
+
+
 <!-- ========================================== -->
 <!-- SECTION : FORM                    -->
 <!-- ========================================== -->
 
 
-<section class="dotted-bg w-full py-6 relative font-sans antialiased border-t border-gray-200 overflow-hidden">
+<section id="form-section" class="dotted-bg w-full py-3 relative font-sans antialiased overflow-hidden">
     
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3B5BFF]/10 blur-[100px] rounded-full pointer-events-none"></div>
     <div class="absolute bottom-0 left-[-10%] w-[300px] h-[300px] bg-[#B670FF]/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-    <!-- Tech Background: Circuit Board SVG -->
-    <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.09]">
+    <!-- Tech Background: Flowing circuit traces -->
+    <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.08]">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <pattern id="circuit" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-                    <!-- Horizontal lines -->
-                    <line x1="0" y1="30" x2="40" y2="30" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="80" y1="30" x2="120" y2="30" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="0" y1="90" x2="30" y2="90" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="90" y1="90" x2="120" y2="90" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <!-- Vertical lines -->
-                    <line x1="30" y1="0" x2="30" y2="20" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="30" y1="40" x2="30" y2="80" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="30" y1="100" x2="30" y2="120" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="90" y1="0" x2="90" y2="20" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="90" y1="40" x2="90" y2="80" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <line x1="90" y1="100" x2="90" y2="120" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <!-- Corner connectors -->
-                    <path d="M40 30 Q60 30 60 50" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
-                    <path d="M60 70 Q60 90 80 90" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
-                    <!-- Nodes / solder points -->
-                    <circle cx="30" cy="30" r="3" fill="#3B5BFF"/>
-                    <circle cx="90" cy="30" r="3" fill="#3B5BFF"/>
-                    <circle cx="30" cy="90" r="3" fill="#3B5BFF"/>
-                    <circle cx="90" cy="90" r="3" fill="#3B5BFF"/>
-                    <circle cx="60" cy="60" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
-                    <circle cx="60" cy="60" r="1.5" fill="#3B5BFF"/>
-                    <!-- IC chip shape -->
-                    <rect x="48" y="48" width="24" height="24" rx="2" fill="none" stroke="#3B5BFF" stroke-width="1"/>
-                    <!-- Chip pins -->
-                    <line x1="48" y1="54" x2="44" y2="54" stroke="#3B5BFF" stroke-width="1"/>
-                    <line x1="48" y1="60" x2="44" y2="60" stroke="#3B5BFF" stroke-width="1"/>
-                    <line x1="48" y1="66" x2="44" y2="66" stroke="#3B5BFF" stroke-width="1"/>
-                    <line x1="72" y1="54" x2="76" y2="54" stroke="#3B5BFF" stroke-width="1"/>
-                    <line x1="72" y1="60" x2="76" y2="60" stroke="#3B5BFF" stroke-width="1"/>
-                    <line x1="72" y1="66" x2="76" y2="66" stroke="#3B5BFF" stroke-width="1"/>
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#circuit)"/>
+            <!-- Left side circuit traces -->
+            <path d="M0 80 H 80 L 120 120 V 200 L 160 240 H 280" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="280" cy="240" r="4" fill="#3B5BFF"/>
+            <rect x="276" cy="236" width="8" height="8" rx="1" fill="none" stroke="#3B5BFF" stroke-width="1"/>
+
+            <path d="M0 180 H 60 L 100 220 V 320 L 140 360 H 220 L 260 320 V 260" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="260" cy="260" r="3" fill="#3B5BFF"/>
+
+            <path d="M0 320 H 40 L 80 280 H 180 L 220 240 V 160" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="220" cy="160" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="220" cy="160" r="1.5" fill="#3B5BFF"/>
+
+            <!-- IC chip left -->
+            <rect x="60" y="380" width="60" height="40" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="60" y1="390" x2="48" y2="390" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="60" y1="400" x2="48" y2="400" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="60" y1="410" x2="48" y2="410" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="120" y1="390" x2="132" y2="390" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="120" y1="400" x2="132" y2="400" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="120" y1="410" x2="132" y2="410" stroke="#3B5BFF" stroke-width="1"/>
+            <path d="M132 400 H 200 L 240 360 V 280" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="240" cy="280" r="3" fill="#3B5BFF"/>
+
+            <!-- Right side circuit traces -->
+            <path d="M100% 60 H calc(100% - 80px) L calc(100% - 120px) 100 V 200 L calc(100% - 160px) 240 H calc(100% - 280px)" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+
+            <!-- Using fixed right-side coords -->
+            <path d="M1600 60 H 1520 L 1480 100 V 200 L 1440 240 H 1320" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1320" cy="240" r="4" fill="#3B5BFF"/>
+
+            <path d="M1600 200 H 1540 L 1500 240 V 340 L 1460 380 H 1380" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="1380" cy="380" r="3" fill="#3B5BFF"/>
+
+            <path d="M1600 380 H 1560 L 1520 340 H 1420 L 1380 300 V 220" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1380" cy="220" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="1380" cy="220" r="1.5" fill="#3B5BFF"/>
+
+            <!-- IC chip right -->
+            <rect x="1420" y="420" width="60" height="40" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="1420" y1="430" x2="1408" y2="430" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1420" y1="440" x2="1408" y2="440" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1420" y1="450" x2="1408" y2="450" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="430" x2="1492" y2="430" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="440" x2="1492" y2="440" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="450" x2="1492" y2="450" stroke="#3B5BFF" stroke-width="1"/>
+
+            <!-- Top center arch trace -->
+            <path d="M 500 0 V 40 L 560 100 H 700 L 760 40 V 0" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 5"/>
+            <circle cx="500" cy="0" r="3" fill="#3B5BFF"/>
+            <circle cx="760" cy="0" r="3" fill="#3B5BFF"/>
+
+            <!-- Bottom center trace -->
+            <path d="M 600 600 V 560 L 660 500 H 800 L 860 560 V 600" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 5"/>
+            <circle cx="730" cy="500" r="5" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="730" cy="500" r="2" fill="#3B5BFF"/>
+
+            <!-- ===== EXTRA LEFT TRACES ===== -->
+            <path d="M0 420 H 55 L 95 380 V 300 L 135 260 H 230" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="230" cy="260" r="3" fill="#3B5BFF"/>
+            <path d="M0 520 H 70 L 110 480 H 190 L 230 440 V 360" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="230" cy="360" r="4" fill="#3B5BFF"/>
+            <rect x="45" y="160" width="65" height="45" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="45" y1="172" x2="31" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="45" y1="183" x2="31" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="45" y1="194" x2="31" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="110" y1="172" x2="124" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="110" y1="183" x2="124" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="110" y1="194" x2="124" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <path d="M124 183 H 190 L 230 143 V 80" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="230" cy="80" r="3" fill="#3B5BFF"/>
+            <path d="M150 560 H 170 M 170 552 H 200 V 568 H 170 Z M 200 560 H 220" stroke="#3B5BFF" stroke-width="1.2" fill="none"/>
+            <path d="M220 560 H 250 L 270 540 V 480" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="270" cy="480" r="3" fill="#3B5BFF"/>
+
+            <!-- ===== EXTRA RIGHT TRACES ===== -->
+            <path d="M1600 440 H 1545 L 1505 400 V 320 L 1465 280 H 1370" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+            <circle cx="1370" cy="280" r="3" fill="#3B5BFF"/>
+            <path d="M1600 540 H 1530 L 1490 500 H 1410 L 1370 460 V 380" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1370" cy="380" r="4" fill="#3B5BFF"/>
+            <rect x="1480" y="160" width="65" height="45" rx="3" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <line x1="1480" y1="172" x2="1466" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="183" x2="1466" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1480" y1="194" x2="1466" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1545" y1="172" x2="1559" y2="172" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1545" y1="183" x2="1559" y2="183" stroke="#3B5BFF" stroke-width="1"/>
+            <line x1="1545" y1="194" x2="1559" y2="194" stroke="#3B5BFF" stroke-width="1"/>
+            <path d="M1466 183 H 1400 L 1360 143 V 80" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1360" cy="80" r="3" fill="#3B5BFF"/>
+            <path d="M1380 560 H 1400 M 1400 552 H 1430 V 568 H 1400 Z M 1430 560 H 1450" stroke="#3B5BFF" stroke-width="1.2" fill="none"/>
+            <path d="M1450 560 H 1480 L 1500 540 V 480" stroke="#3B5BFF" stroke-width="1.5" fill="none"/>
+            <circle cx="1500" cy="480" r="3" fill="#3B5BFF"/>
+
+            <!-- ===== CENTER EXTRA ===== -->
+            <path d="M 400 700 V 640 L 460 580 H 560 L 600 540 V 460 L 640 420 H 740" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+            <circle cx="740" cy="420" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="740" cy="420" r="1.5" fill="#3B5BFF"/>
+            <path d="M 1000 0 V 60 L 1060 120 H 1160 L 1200 80 V 0" stroke="#3B5BFF" stroke-width="1.5" fill="none" stroke-dasharray="5 5"/>
+            <circle cx="1000" cy="0" r="3" fill="#3B5BFF"/>
+            <circle cx="1200" cy="0" r="3" fill="#3B5BFF"/>
+            <circle cx="1130" cy="120" r="4" fill="none" stroke="#3B5BFF" stroke-width="1.5"/>
+            <circle cx="1130" cy="120" r="1.5" fill="#3B5BFF"/>
+            <path d="M 960 650 H 980 M 980 642 H 1010 V 658 H 980 Z M 1010 650 H 1030" stroke="#3B5BFF" stroke-width="1.2" fill="none"/>
         </svg>
     </div>
-
-    <!-- Floating tech labels -->
     <div class="absolute top-[12%] left-[3%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">&lt;MCA /&gt;</div>
     <div class="absolute top-[35%] left-[1%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">{ AI: true }</div>
-    <div class="absolute bottom-[20%] left-[4%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">import Tech;</div>
-    <div class="absolute top-[10%] right-[3%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">01001011</div>
-    <div class="absolute top-[55%] right-[2%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">fn() =&gt; {}</div>
-    <div class="absolute bottom-[15%] right-[4%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">class Dev {}</div>
+    <div class="absolute bottom-[20%] left-[4%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">import TIMSCDR;</div>
+    <div class="absolute top-[10%] right-[3%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">npm run start</div>
+    <div class="absolute top-[55%] right-[2%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">fn() =&gt; {UI/UX}</div>
+    <div class="absolute bottom-[15%] right-[4%] text-[#3B5BFF]/50 font-mono text-[13px] font-semibold pointer-events-none select-none hidden lg:block">class Devops {}</div>
 
-    <div class="max-w-[1300px] mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+    <div class="max-w-[1450px] mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
         
         <div class="w-full lg:w-[50%] flex flex-col justify-center">
             <span class="text-[#3B5BFF] text-[32px] font-bold tracking-[0.15em] uppercase mb-4 block">
@@ -1487,16 +1802,9 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
+                       <div>
                             <label class="block text-[12px] font-semibold text-[#1A1D1F] mb-1 ml-1">State <span class="text-red-500">*</span></label>
-                            <select class="custom-select w-full px-4 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all text-[14px]" required>
-                                <option value="" disabled selected>Select State</option>
-                                <option value="maharashtra">Maharashtra</option>
-                                <option value="gujarat">Gujarat</option>
-                                <option value="karnataka">Karnataka</option>
-                                <option value="delhi">Delhi</option>
-                                <option value="other">Other</option>
-                            </select>
+                            <input type="text" placeholder="Enter State" class="w-full px-4 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6E8EC] text-gray-900 focus:outline-none focus:border-[#3B5BFF] focus:ring-2 focus:ring-[#3B5BFF]/20 transition-all placeholder:text-gray-400 text-[14px]" required>
                         </div>
                         <div>
                             <label class="block text-[12px] font-semibold text-[#1A1D1F] mb-1 ml-1">City <span class="text-red-500">*</span></label>
@@ -1532,11 +1840,53 @@
 
                 </form>
             </div>
+            
         </div>
         
+        
     </div>
-</section>
 
+    
+<div class="mt-16 w-full bg-[#F4F7FF] border border-[#E5E9FF] rounded-[24px] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-[0_4px_15px_rgba(59,91,255,0.03)]">
+                
+                <div class="flex items-center gap-5 z-10 relative">
+                   
+                    
+                    <div class="flex flex-col pl-10">
+                        <h4 class="text-[#1A1D1F] font-bold text-[16px] md:text-[25px] mb-0.5">Welcome to a place where your future begins!</h4>
+                        <p class="text-[#6F767E] text-[18px]">We're excited to be a part of your journey. Let's build your future together.</p>
+                    </div>
+                </div>
+
+                <!-- Building Silhouette (Faint Blue matching Brand) -->
+                <div class="absolute right-[-20px] bottom-0 opacity-[0.1] pointer-events-none hidden md:block">
+                    <svg width="400" height="90" viewBox="0 0 400 90" fill="#3B5BFF" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 90C40 80 30 70 25 70C20 70 10 80 10 90H40Z"/>
+                        <path d="M60 90C60 60 45 40 35 40C25 40 10 60 10 90H60Z"/>
+                        <rect x="70" y="50" width="40" height="40" rx="2"/>
+                        <rect x="75" y="60" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="95" y="60" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="110" y="30" width="50" height="60" rx="2"/>
+                        <rect x="115" y="45" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="130" y="45" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="145" y="45" width="8" height="15" fill="white" rx="1"/>
+                        <path d="M160 90V20L200 0L240 20V90H160Z" />
+                        <circle cx="200" cy="30" r="8" fill="white" />
+                        <rect x="185" y="60" width="30" height="30" fill="white" rx="2"/>
+                        <rect x="240" y="30" width="50" height="60" rx="2"/>
+                        <rect x="245" y="45" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="260" y="45" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="275" y="45" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="290" y="50" width="40" height="40" rx="2"/>
+                        <rect x="295" y="60" width="8" height="15" fill="white" rx="1"/>
+                        <rect x="315" y="60" width="8" height="15" fill="white" rx="1"/>
+                        <path d="M360 90C360 60 345 40 335 40C325 40 310 60 310 90H360Z"/>
+                        <path d="M380 90C380 80 370 70 365 70C360 70 350 80 350 90H380Z"/>
+                    </svg>
+                </div>
+            </div>
+
+</section>
 
 
 <footer class="bg-[#02112C] border-t border-[#1e2d4a] py-5 text-center font-sans">
@@ -1762,23 +2112,7 @@
 
     // Apply Now button functionality
     function scrollToForm() {
-        // Find the form section (the one with "Request Information")
-        const formSection = document.querySelector('section:last-of-type');
-        const formContainer = formSection.querySelector('.w-full.lg\\:w-\\[45%\\]');
-        
-        // Smooth scroll to form
-        formSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-        });
-        
-        // Increase form width after scroll
-        setTimeout(() => {
-            if (formContainer) {
-                formContainer.classList.remove('lg:w-[45%]');
-                formContainer.classList.add('lg:w-[60%]');
-            }
-        }, 1000);
+        document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Add event listeners to all Apply Now buttons immediately
