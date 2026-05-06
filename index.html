@@ -220,6 +220,1102 @@
     .marquee-track:hover .marquee-inner { animation-play-state: paused; }
 </style>
 
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        min-width: 0;
+    }
+
+    img, svg, video, iframe {
+        max-width: 100%;
+    }
+
+    button, input, select, textarea {
+        max-width: 100%;
+    }
+
+    h1, h2, h3, h4, p, span, a, label, button {
+        overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 1279px) {
+        .logo-card {
+            width: clamp(104px, 18vw, 150px);
+        }
+    }
+
+    @media (max-width: 1023px) {
+        body {
+            overflow-x: hidden;
+        }
+
+        section {
+            max-width: 100vw;
+        }
+
+        header {
+            margin-left: 0 !important;
+            margin-bottom: 2rem !important;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header img {
+            height: 4.5rem !important;
+            width: min(68vw, 320px) !important;
+        }
+
+        header .flex.items-center.gap-3 {
+            gap: 0.5rem !important;
+        }
+
+        header a {
+            width: 2.35rem !important;
+            height: 2.35rem !important;
+            flex: 0 0 auto;
+        }
+
+        .relative.z-20.max-w-\[1400px\],
+        .max-w-\[1536px\],
+        .max-w-\[1450px\],
+        .max-w-\[1400px\],
+        .max-w-\[1600px\] {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+        .lg\:-ml-12 {
+            margin-left: 0 !important;
+        }
+
+        .lg\:px-12,
+        .lg\:px-16,
+        .lg\:px-8 {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+        .lg\:pl-12,
+        .lg\:pl-10,
+        .lg\:pl-4,
+        .lg\:pl-8 {
+            padding-left: 0 !important;
+        }
+
+        .lg\:pr-\[80px\],
+        .xl\:pr-\[120px\] {
+            padding-right: 0 !important;
+        }
+
+        .border-l {
+            border-left-width: 0 !important;
+        }
+
+        .absolute.right-0.top-0.w-full.lg\:w-\[60\%\] {
+            opacity: 0.35;
+        }
+
+        .absolute.right-0.top-0.w-full.lg\:w-\[60\%\] img {
+            object-position: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 9vw, 3rem) !important;
+            max-width: 100%;
+            word-break: normal;
+            overflow-wrap: break-word;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 7vw, 2.75rem) !important;
+        }
+
+        .text-\[64px\],
+        .xl\:text-\[64px\],
+        .xl\:text-\[52px\],
+        .xl\:text-\[48px\],
+        .text-\[52px\],
+        .text-\[48px\],
+        .text-\[44px\],
+        .text-\[40px\],
+        .text-\[38px\],
+        .md\:text-\[44px\],
+        .md\:text-\[40px\],
+        .text-\[36px\],
+        .text-\[32px\] {
+            font-size: clamp(1.75rem, 7vw, 2.75rem) !important;
+        }
+
+        .text-\[28px\],
+        .text-\[26px\],
+        .text-\[25px\],
+        .text-\[24px\] {
+            font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+        }
+
+        .text-\[20px\],
+        .xl\:text-\[20px\],
+        .text-\[18px\],
+        .xl\:text-\[18px\],
+        .text-\[17px\],
+        .xl\:text-\[17px\],
+        .text-\[16px\] {
+            font-size: clamp(0.92rem, 3.8vw, 1.05rem) !important;
+        }
+
+        .flex.items-center.gap-5,
+        .flex.flex-wrap.items-center.gap-4,
+        .flex.items-center.gap-4 {
+            flex-wrap: wrap;
+        }
+
+        button {
+            justify-content: center;
+            min-height: 44px;
+        }
+
+        .tab-button {
+            border-radius: 1.25rem !important;
+            padding: 1.15rem !important;
+        }
+
+        .tab-underline,
+        .tab-pointer {
+            display: none !important;
+        }
+
+        #highlight-container {
+            justify-content: flex-start !important;
+            gap: 1rem !important;
+        }
+
+        #highlight-container > div {
+            width: calc(50% - 0.5rem) !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+        }
+
+        #key-info-list > div {
+            flex-wrap: wrap;
+            gap: 0.75rem !important;
+        }
+
+        #key-info-list > div > .w-24 {
+            width: auto !important;
+        }
+
+        .absolute.bottom-\[-106px\] {
+            display: none !important;
+        }
+
+        .grid.grid-cols-2.w-full {
+            grid-template-columns: 1fr !important;
+        }
+
+        .grid.grid-cols-2.w-full > div {
+            border-right-width: 0 !important;
+            border-bottom-width: 1px !important;
+            padding: 1.25rem 0 !important;
+        }
+
+        .grid.grid-cols-2.w-full > div:last-child {
+            border-bottom-width: 0 !important;
+        }
+
+        .relative.w-full.max-w-\[360px\].h-\[300px\] {
+            height: 230px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .w-\[110px\].h-\[110px\] {
+            width: 86px !important;
+            height: 86px !important;
+        }
+
+        .mt-16.w-full.bg-\[\#F4F7FF\] {
+            margin-top: 2rem !important;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            width: auto !important;
+        }
+
+        .mt-16.w-full.bg-\[\#F4F7FF\] .pl-10 {
+            padding-left: 0 !important;
+            text-align: center;
+        }
+
+        footer {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        section:first-of-type .mt-8.border-\[\#4A65FF\]\/40 {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem !important;
+            transform: none !important;
+        }
+
+        section:first-of-type .mt-8.border-\[\#4A65FF\]\/40 > div {
+            min-width: 0;
+        }
+
+        section:first-of-type .mt-8.border-\[\#4A65FF\]\/40 svg {
+            width: 2rem !important;
+            height: 2rem !important;
+            flex: 0 0 auto;
+        }
+    }
+
+    @media (max-width: 767px) {
+        section {
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+
+        section:first-of-type {
+            padding-top: 1.25rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] {
+            width: calc(100vw - 2rem) !important;
+            max-width: calc(100vw - 2rem) !important;
+            min-width: 0 !important;
+        }
+
+        section:first-of-type h1,
+        section:first-of-type p {
+            width: 100% !important;
+            max-width: calc(100vw - 2rem) !important;
+        }
+
+        section:first-of-type h1 span {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-break: normal;
+        }
+
+        header {
+            align-items: center !important;
+        }
+
+        .flex.items-center.gap-5 > button,
+        .flex.flex-wrap.items-center.gap-4 > button,
+        form button[type="submit"] {
+            width: 100%;
+        }
+
+        section:first-of-type .flex.items-center.gap-5 > button {
+            width: calc(100vw - 2rem) !important;
+        }
+
+        .relative.z-30.max-w-\[1600px\] {
+            margin-top: -2rem !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 {
+            grid-template-columns: 1fr !important;
+        }
+
+        .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div {
+            justify-content: flex-start !important;
+            padding: 0.75rem !important;
+            border-right-width: 0 !important;
+        }
+
+        #tab-container {
+            gap: 0.75rem !important;
+            margin-bottom: 1.5rem !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        }
+
+        #tab-container .tab-button {
+            padding: 0.6rem 0.4rem !important;
+            border-radius: 0.75rem !important;
+        }
+
+        #tab-container .tab-button .icon-box {
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 0.5rem !important;
+            margin-bottom: 0.4rem !important;
+        }
+
+        #tab-container .tab-button .icon-box svg {
+            width: 18px !important;
+            height: 18px !important;
+        }
+
+        #tab-container .tab-button h3 {
+            font-size: 11px !important;
+            margin-bottom: 0.15rem !important;
+            line-height: 1.2 !important;
+        }
+
+        #tab-container .tab-button p {
+            font-size: 10px !important;
+            line-height: 1.2 !important;
+        }
+
+        #tab-container .active-badge {
+            width: 14px !important;
+            height: 14px !important;
+            top: 6px !important;
+            right: 6px !important;
+        }
+
+        #tab-container .active-badge svg {
+            width: 10px !important;
+            height: 10px !important;
+        }
+
+        .bg-white.rounded-\[32px\],
+        .bg-white.rounded-3xl,
+        .bg-\[\#0B1120\].rounded-3xl,
+        .rounded-\[32px\] {
+            border-radius: 1.25rem !important;
+        }
+
+        .p-8,
+        .lg\:p-10,
+        .p-7,
+        .md\:p-7,
+        .md\:p-8,
+        .p-6,
+        .p-5 {
+            padding: 1rem !important;
+        }
+
+        .h-\[250px\] {
+            height: 200px !important;
+        }
+
+        #highlight-container > div {
+            width: 100% !important;
+            flex-direction: row !important;
+            gap: 0.75rem;
+        }
+
+        .logo-card {
+            width: 42vw;
+            min-width: 118px;
+            max-width: 150px;
+            height: 60px;
+        }
+
+        .marquee-track::before,
+        .marquee-track::after {
+            width: 28px;
+        }
+
+        .grid.grid-cols-2.md\:grid-cols-3.lg\:grid-cols-6 {
+            grid-template-columns: 1fr 1fr !important;
+        }
+
+        .grid.grid-cols-2.md\:grid-cols-4 {
+            grid-template-columns: 1fr !important;
+        }
+
+        .absolute.inset-0.pointer-events-none.z-0.opacity-\[0\.08\],
+        .absolute.top-0.left-0.w-\[700px\],
+        .absolute.top-0.right-0.w-\[700px\] {
+            display: none !important;
+        }
+
+        #tourModal .max-w-3xl {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        footer p {
+            font-size: 0.78rem !important;
+        }
+    }
+
+    @media (max-width: 479px) {
+        header {
+            justify-content: center !important;
+            text-align: center;
+        }
+
+        header img {
+            width: min(82vw, 280px) !important;
+        }
+
+        header .flex.items-center.gap-3 {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .relative.z-20.max-w-\[1400px\],
+        .max-w-\[1536px\],
+        .max-w-\[1450px\],
+        .max-w-\[1400px\],
+        .max-w-\[1600px\] {
+            padding-left: 0.875rem !important;
+            padding-right: 0.875rem !important;
+        }
+
+        h1 {
+            font-size: clamp(1.72rem, 8vw, 2.05rem) !important;
+            line-height: 1.12 !important;
+        }
+
+        h2 {
+            font-size: clamp(1.55rem, 8vw, 2.1rem) !important;
+        }
+
+        section:first-of-type p {
+            max-width: min(100%, 340px) !important;
+            font-size: 0.98rem !important;
+            line-height: 1.65 !important;
+        }
+
+        section:first-of-type .flex.items-center.gap-5 > button,
+        section:first-of-type .mt-8.border-\[\#4A65FF\]\/40 {
+            max-width: 340px !important;
+        }
+
+        .grid.grid-cols-2.md\:grid-cols-3.lg\:grid-cols-6 {
+            grid-template-columns: 1fr !important;
+        }
+
+        .w-\[52px\].h-\[52px\],
+        .w-12.h-12 {
+            width: 2.6rem !important;
+            height: 2.6rem !important;
+        }
+
+        .w-\[56px\].h-\[56px\],
+        .xl\:w-\[64px\].xl\:h-\[64px\] {
+            width: 3rem !important;
+            height: 3rem !important;
+        }
+
+        .text-\[13px\].font-semibold.tracking-\[0\.15em\],
+        .tracking-\[0\.15em\],
+        .tracking-\[0\.22em\] {
+            letter-spacing: 0.08em !important;
+        }
+
+        section:first-of-type .mt-8.border-\[\#4A65FF\]\/40 {
+            grid-template-columns: 1fr;
+            width: calc(100vw - 2rem) !important;
+            max-width: calc(100vw - 2rem) !important;
+        }
+    }
+
+    .hero-mobile-tech-rail {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        body {
+            background: #f7faff;
+        }
+
+        section:first-of-type {
+            padding-top: 1.55rem !important;
+            padding-bottom: 2.6rem !important;
+            overflow: visible;
+            background: #02112C !important;
+        }
+
+        section:first-of-type > .absolute.right-0.top-0 {
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 1 !important;
+        }
+
+        section:first-of-type > .absolute.right-0.top-0 img {
+            opacity: 0.68 !important;
+            object-position: 57% top !important;
+            transform: scale(1.04);
+        }
+
+        section:first-of-type > .absolute.right-0.top-0::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(2,17,44,0.98) 0%, rgba(2,17,44,0.9) 43%, rgba(2,17,44,0.42) 100%),
+                linear-gradient(180deg, rgba(2,17,44,0.6) 0%, rgba(2,17,44,0.36) 42%, rgba(2,17,44,0.96) 100%);
+        }
+
+        section:first-of-type .relative.z-20.max-w-\[1400px\] {
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        section:first-of-type header.hero-header {
+            justify-content: space-between !important;
+            align-items: center !important;
+            text-align: left !important;
+            flex-wrap: nowrap !important;
+            gap: 0.8rem !important;
+            margin-left: 0 !important;
+            margin-bottom: 3.65rem !important;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.16);
+        }
+
+        section:first-of-type header.hero-header img {
+            width: min(48vw, 285px) !important;
+            height: auto !important;
+            max-height: 76px;
+            object-fit: contain;
+        }
+
+        section:first-of-type .hero-header-right {
+            flex: 0 0 auto;
+            width: auto !important;
+            justify-content: flex-end !important;
+        }
+
+        section:first-of-type header .hero-header-right.flex.items-center.gap-3,
+        section:first-of-type header .hero-social-links.flex.items-center.gap-3 {
+            width: auto !important;
+            justify-content: flex-end !important;
+        }
+
+        section:first-of-type .hero-mobile-apply {
+            display: none !important;
+        }
+
+        section:first-of-type .hero-social-links {
+            gap: 0.5rem !important;
+            flex-wrap: nowrap !important;
+            width: auto !important;
+            justify-content: flex-end !important;
+        }
+
+        section:first-of-type .hero-social-links a {
+            width: clamp(2.35rem, 10.2vw, 3.5rem) !important;
+            height: clamp(2.35rem, 10.2vw, 3.5rem) !important;
+            background: rgba(255,255,255,0.12) !important;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+        }
+
+        section:first-of-type .hero-social-links svg {
+            width: clamp(1.25rem, 5vw, 1.65rem) !important;
+            height: clamp(1.25rem, 5vw, 1.65rem) !important;
+        }
+
+        section:first-of-type .flex.flex-col.lg\:flex-row.relative {
+            min-height: 610px;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > p:first-child {
+            margin-bottom: 1.25rem !important;
+            color: #7185ff !important;
+            font-size: clamp(0.72rem, 3vw, 0.95rem) !important;
+            line-height: 1.25 !important;
+            letter-spacing: 0.1em !important;
+            white-space: nowrap;
+        }
+
+        section:first-of-type h1 {
+            max-width: 72vw !important;
+            margin-bottom: 1.35rem !important;
+            font-size: clamp(2.54rem, 11.3vw, 4.05rem) !important;
+            line-height: 1.05 !important;
+            letter-spacing: 0 !important;
+        }
+
+        section:first-of-type .hero-subcopy {
+            max-width: 67vw !important;
+            margin-bottom: 1.6rem !important;
+            color: rgba(226,232,240,0.82) !important;
+            font-size: clamp(1rem, 4.35vw, 1.38rem) !important;
+            line-height: 1.34 !important;
+        }
+
+        section:first-of-type .hero-mobile-lower {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: end;
+            gap: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 {
+            width: min(42vw, 252px);
+            flex-direction: column;
+            align-items: stretch !important;
+            gap: 1rem !important;
+            flex-wrap: nowrap !important;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 button {
+            width: 100% !important;
+            min-height: 70px;
+            justify-content: center;
+            border-radius: 0.9rem !important;
+            padding: 1rem 1.05rem !important;
+            font-size: clamp(0.98rem, 4vw, 1.25rem) !important;
+            line-height: 1.1;
+            font-weight: 700;
+            box-shadow: 0 18px 28px -14px rgba(59,91,255,0.75);
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 button:nth-child(2) {
+            min-height: 58px;
+            background: rgba(2,17,44,0.52) !important;
+            border-color: rgba(92,117,255,0.9) !important;
+            box-shadow: none;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 button:nth-child(2) .sm\:hidden {
+            display: none !important;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 button:nth-child(2) .hidden.sm\:inline {
+            display: inline !important;
+        }
+
+        .hero-mobile-tech-rail {
+            display: flex;
+            position: relative;
+            z-index: 32;
+            flex-direction: column;
+            justify-self: end;
+            align-self: end;
+            width: 2.1rem;
+            gap: 0.95rem;
+            margin-bottom: 0.15rem;
+            color: white;
+            font-size: clamp(0.66rem, 2.7vw, 0.82rem);
+            line-height: 1.08;
+            pointer-events: none;
+            transform: translateX(-1.85rem);
+        }
+
+        .hero-mobile-tech-line {
+            position: absolute;
+            top: 1.1rem;
+            left: 1.05rem;
+            width: 1px;
+            height: calc(100% - 2.2rem);
+            background: linear-gradient(180deg, rgba(92,117,255,0), rgba(92,117,255,0.88) 13%, rgba(92,117,255,0.88) 87%, rgba(92,117,255,0));
+            box-shadow: 0 0 12px rgba(92,117,255,0.65);
+        }
+
+        .hero-mobile-tech-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 2.1rem;
+            align-items: center;
+            justify-items: end;
+            min-height: 2.15rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+        }
+
+        .hero-mobile-tech-icon {
+            position: relative;
+            z-index: 1;
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8fff;
+            background: rgba(5,19,48,0.72);
+            border: 1.5px solid rgba(92,117,255,0.95);
+            box-shadow: 0 0 18px rgba(92,117,255,0.42), inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .hero-mobile-tech-icon svg {
+            width: 0.95rem;
+            height: 0.95rem;
+        }
+
+        .hero-mobile-tech-item > span:last-child {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: calc(100% + 0.45rem);
+            transform: translateY(-50%);
+            width: 3.95rem;
+            max-width: none;
+            line-height: 1.02;
+            text-align: right;
+        }
+
+        .hero-mobile-accreditation {
+            display: none !important;
+        }
+
+        section:first-of-type .hero-stats-row {
+            position: relative !important;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            width: 100% !important;
+            max-width: none !important;
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 0 !important;
+            margin: 1.4rem 0 -2.55rem !important;
+            padding: 1.2rem 1.25rem !important;
+            transform: none !important;
+            background: #fff;
+            border: 0 !important;
+            border-radius: 1.1rem;
+            box-shadow: 0 26px 52px -22px rgba(18,35,66,0.38);
+        }
+
+        section:first-of-type .hero-stats-row > div:not(.hidden) {
+            min-height: 78px;
+            gap: 0.75rem !important;
+            align-items: center;
+            justify-content: center;
+            padding: 0.45rem 0.35rem;
+        }
+
+        section:first-of-type .hero-stats-row > div:nth-child(1),
+        section:first-of-type .hero-stats-row > div:nth-child(5) {
+            border-right: 1px solid #d9dde6;
+        }
+
+        section:first-of-type .hero-stats-row > div:nth-child(1),
+        section:first-of-type .hero-stats-row > div:nth-child(3) {
+            border-bottom: 1px solid #d9dde6;
+        }
+
+        section:first-of-type .hero-stats-row svg {
+            width: 2.45rem !important;
+            height: 2.45rem !important;
+            color: #5a70ce !important;
+            flex: 0 0 auto;
+        }
+
+        section:first-of-type .hero-stats-row h3 {
+            color: #07101f !important;
+            font-size: clamp(1.45rem, 6vw, 1.95rem) !important;
+            line-height: 1 !important;
+            margin-bottom: 0.25rem !important;
+            letter-spacing: 0 !important;
+        }
+
+        section:first-of-type .hero-stats-row p {
+            color: #0f172a !important;
+            font-size: clamp(0.82rem, 3.55vw, 1.12rem) !important;
+            line-height: 1.08 !important;
+            max-width: 7.5rem !important;
+        }
+
+        #accreditation-section {
+            margin-top: 5.3rem !important;
+            margin-bottom: 2.25rem !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        #accreditation-section > div {
+            border-radius: 1rem !important;
+            padding: 1.45rem 1rem 1.2rem !important;
+            box-shadow: 0 18px 42px -24px rgba(18,35,66,0.35) !important;
+        }
+
+        #accreditation-section h3 {
+            margin-bottom: 1.05rem !important;
+            font-size: clamp(0.82rem, 3.25vw, 1rem) !important;
+            line-height: 1.25 !important;
+            letter-spacing: 0.16em !important;
+            color: #64749b !important;
+        }
+
+        #accreditation-section .flex.items-center.gap-4 {
+            display: block !important;
+        }
+
+        #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 {
+            display: grid !important;
+            grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+            gap: 0.3rem !important;
+            align-items: center !important;
+            overflow: hidden;
+        }
+
+        #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div {
+            min-width: 0;
+            justify-content: center !important;
+            gap: 0 !important;
+            padding: 0.2rem 0 !important;
+            border-right: 0 !important;
+        }
+
+        #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div > div {
+            display: none !important;
+        }
+
+        #accreditation-section img {
+            width: clamp(1.9rem, 8vw, 2.4rem) !important;
+            height: clamp(1.9rem, 8vw, 2.4rem) !important;
+        }
+
+        #accreditation-section h4 {
+            font-size: clamp(0.43rem, 1.85vw, 0.62rem) !important;
+            line-height: 1.05 !important;
+            overflow-wrap: normal !important;
+        }
+
+        #accreditation-section p {
+            font-size: clamp(0.38rem, 1.65vw, 0.55rem) !important;
+            line-height: 1.1 !important;
+            margin-top: 0.12rem !important;
+            overflow-wrap: normal !important;
+        }
+    }
+
+    @media (max-width: 430px) {
+        section:first-of-type {
+            min-height: auto;
+        }
+
+        section:first-of-type .relative.z-20.max-w-\[1400px\],
+        #accreditation-section {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+        section:first-of-type h1 {
+            max-width: 82vw !important;
+            font-size: clamp(2.1rem, 10.55vw, 2.75rem) !important;
+        }
+
+        section:first-of-type header.hero-header {
+            gap: 0.45rem !important;
+        }
+
+        section:first-of-type header.hero-header img {
+            width: 44vw !important;
+        }
+
+        section:first-of-type .hero-social-links a {
+            width: 2.35rem !important;
+            height: 2.35rem !important;
+        }
+
+        section:first-of-type .hero-subcopy {
+            max-width: 60vw !important;
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 {
+            width: min(43vw, 182px);
+        }
+
+        section:first-of-type .w-full.lg\:w-\[65\%\] > .hero-mobile-lower > .flex.items-center.gap-5 button {
+            min-height: 62px;
+            padding-left: 0.8rem !important;
+            padding-right: 0.8rem !important;
+        }
+
+        .hero-mobile-tech-rail {
+            gap: 0.78rem;
+            transform: translateX(-2.15rem);
+        }
+
+        .hero-mobile-tech-item {
+            grid-template-columns: 1.95rem;
+        }
+
+        .hero-mobile-tech-icon {
+            width: 1.95rem;
+            height: 1.95rem;
+        }
+
+        .hero-mobile-tech-item > span:last-child {
+            right: calc(100% + 0.35rem);
+            width: 3.55rem;
+        }
+
+        .hero-mobile-tech-line {
+            left: 0.98rem;
+        }
+
+        section:first-of-type .hero-stats-row {
+            padding: 1rem 0.8rem !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        /* Admission Process compact mobile */
+        section.w-full.bg-\[\#F8FAFC\].py-16 {
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .mb-16 {
+            margin-bottom: 1.25rem !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .mb-16 span {
+            font-size: 1rem !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .mb-16 h2 {
+            font-size: 1.4rem !important;
+            margin-bottom: 0.25rem !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .mb-16 p {
+            font-size: 0.85rem !important;
+        }
+
+        /* Each step: horizontal row layout on mobile */
+        section.w-full.bg-\[\#F8FAFC\].py-16 .flex.flex-col.lg\:flex-row.justify-between {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0 !important;
+            position: relative;
+        }
+
+        /* Vertical tech line running through all steps */
+        section.w-full.bg-\[\#F8FAFC\].py-16 .flex.flex-col.lg\:flex-row.justify-between::before {
+            content: '';
+            position: absolute;
+            left: 27px;
+            top: 28px;
+            bottom: 28px;
+            width: 2px;
+            background: repeating-linear-gradient(180deg, #3B5BFF 0px, #3B5BFF 8px, transparent 8px, transparent 14px);
+            z-index: 0;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .flex.flex-col.items-center.text-center.w-full.lg\:w-\[18\%\] {
+            width: 100% !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            text-align: left !important;
+            gap: 0.75rem !important;
+            padding: 0.6rem 0 !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Number circle — stays visible, inline */
+        section.w-full.bg-\[\#F8FAFC\].py-16 .w-\[40px\].h-\[40px\] {
+            width: 28px !important;
+            height: 28px !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 0 !important;
+            flex-shrink: 0 !important;
+            background: #3B5BFF !important;
+            color: white !important;
+            border-color: #3B5BFF !important;
+            box-shadow: 0 0 10px rgba(59,91,255,0.45) !important;
+            z-index: 2;
+        }
+
+        /* Icon circle — compact, beside number */
+        section.w-full.bg-\[\#F8FAFC\].py-16 .w-\[110px\].h-\[110px\] {
+            width: 48px !important;
+            height: 48px !important;
+            margin-bottom: 0 !important;
+            flex-shrink: 0 !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .w-\[110px\].h-\[110px\] svg {
+            width: 1.4rem !important;
+            height: 1.4rem !important;
+        }
+
+        /* Text block beside icon */
+        section.w-full.bg-\[\#F8FAFC\].py-16 h3.text-\[\#1A1D1F\].font-bold.text-\[15px\] {
+            font-size: 0.78rem !important;
+            margin-bottom: 0.1rem !important;
+            line-height: 1.2 !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 p.text-\[\#6F767E\].text-\[14px\] {
+            font-size: 0.68rem !important;
+            line-height: 1.3 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .hidden.lg\:block.absolute {
+            display: none !important;
+        }
+
+        section.w-full.bg-\[\#F8FAFC\].py-16 .relative.w-full.mb-10 {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    @media (max-width: 374px) {
+        section:first-of-type {
+            min-height: auto;
+        }
+
+        section:first-of-type header.hero-header {
+            margin-bottom: 2.6rem !important;
+        }
+
+        section:first-of-type header.hero-header img {
+            width: 49vw !important;
+        }
+
+        section:first-of-type .hero-social-links {
+            gap: 0.45rem !important;
+        }
+
+        section:first-of-type h1 {
+            max-width: 74vw !important;
+            font-size: 2rem !important;
+        }
+
+        section:first-of-type .hero-subcopy {
+            max-width: 58vw !important;
+            font-size: 0.95rem !important;
+        }
+
+        .hero-mobile-tech-item {
+            grid-template-columns: 1.85rem;
+        }
+
+        .hero-mobile-tech-icon {
+            width: 1.85rem;
+            height: 1.85rem;
+        }
+
+        .hero-mobile-tech-icon svg {
+            width: 0.85rem;
+            height: 0.85rem;
+        }
+
+        .hero-mobile-tech-line {
+            left: 0.92rem;
+        }
+
+        .hero-mobile-tech-item > span:last-child {
+            width: 3.1rem;
+        }
+    }
+</style>
+
 
 
 </head>
@@ -227,15 +1323,21 @@
 
     <section class="relative bg-[#02112C] w-full pb-12 pt-8 z-10">
         <div class="absolute right-0 top-0 w-full lg:w-[60%] h-full z-0">
-            <img src="/MCA00442.JPG" alt="Students" class="w-full h-full object-cover opacity-95 object-[60%_center]" />
+            <img src="/MCA00442.JPG" alt="Students" class="hero-bg-desktop w-full h-full object-cover opacity-95 object-[60%_center]" />
+            <img src="/" alt="Students" class="hero-bg-mobile w-full h-full object-cover opacity-95 object-[60%_center]" />
             <div class="absolute inset-0 bg-gradient-to-r from-[#02112C] via-[#02112C]/60 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#02112C]/60 via-transparent to-transparent"></div>
         </div>
 
         <div class="relative z-20 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <header class="flex justify-between items-center mb-12 -ml-14">
-                <img src="/TIMSCDR Logo.svg" alt="TIMSCDR Logo" class="h-20 w-78 object-contain" />
-                <div class="flex items-center gap-3">
+            <header class="hero-header flex justify-between items-center mb-12 -ml-14">
+                <img src="/TIMSCDR Logo.svg" alt="TIMSCDR Logo" class="h-20 w-auto max-w-[360px] object-contain" />
+                <div class="hero-header-right flex items-center gap-3">
+                    <button class="hero-mobile-apply hidden bg-[#3B5BFF] hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-xl items-center gap-2 transition shadow-[0_8px_20px_rgba(59,91,255,0.25)]">
+                        Apply Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                    <div class="hero-social-links flex items-center gap-3">
                     <!-- WhatsApp -->
                     <a href="https://wa.me/919876543210" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-colors group" title="WhatsApp">
                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -248,6 +1350,7 @@
                     <a href="tel:+919876543210" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#3B5BFF] flex items-center justify-center transition-colors group" title="Call Us">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                     </a>
+                    </div>
                 </div>
             </header>
 
@@ -262,18 +1365,71 @@
                             Future Ready Careers.
                         </span>
                     </h1>
-                    <p class="text-gray-300 text-[17px] mb-10 max-w-md leading-relaxed font-light">
+                    <p class="hero-subcopy text-gray-300 text-[17px] mb-10 max-w-md leading-relaxed font-light">
                         AICTE approved MCA programs with advanced curriculum, practical exposure and holistic development.
                     </p>
-                    <div class="flex items-center gap-5">
-                        <button class="bg-[#3B5BFF] hover:bg-blue-600 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
-                            Apply Now
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </button>
-                        <button onclick="document.getElementById('programs-section').scrollIntoView({behavior:'smooth'})" class="bg-transparent border border-[#4A65FF] hover:bg-[#4A65FF]/10 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                            Explore Programs
-                        </button>
+                    <div class="hero-mobile-lower">
+                        <div class="flex items-center gap-5">
+                            <button class="bg-[#3B5BFF] hover:bg-blue-600 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
+                                Apply Now
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                            <button onclick="document.getElementById('accreditation-section').scrollIntoView({behavior:'smooth'})" class="bg-transparent border border-[#4A65FF] hover:bg-[#4A65FF]/10 text-white font-medium px-7 py-3 rounded-xl flex items-center gap-3 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                <span class="hidden sm:inline">Explore Programs</span>
+                                <span class="sm:hidden">Explore Accreditations</span>
+                            </button>
+                        </div>
+
+                        <div class="hero-mobile-tech-rail" aria-hidden="true">
+                            <div class="hero-mobile-tech-line"></div>
+                            <div class="hero-mobile-tech-item">
+                                <span class="hero-mobile-tech-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" d="M7 14l4-4 4 4 5-6"/></svg>
+                                </span>
+                                <span>Data<br>Analytics</span>
+                            </div>
+                            <div class="hero-mobile-tech-item">
+                                <span class="hero-mobile-tech-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="5" width="14" height="14" rx="2" stroke-width="1.5"/><path stroke-linecap="round" stroke-width="1.5" d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"/><path d="M9 9h2v2H9zM13 9h2v2h-2zM9 13h2v2H9zM13 13h2v2h-2z" fill="currentColor" stroke="none"/></svg>
+                                </span>
+                                <span>Artificial<br>Intelligence</span>
+                            </div>
+                            <div class="hero-mobile-tech-item">
+                                <span class="hero-mobile-tech-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-10 5 5 0 00-9.78 2A4 4 0 003 15z"/></svg>
+                                </span>
+                                <span>Cloud<br>Computing</span>
+                            </div>
+                            <div class="hero-mobile-tech-item">
+                                <span class="hero-mobile-tech-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><rect x="10" y="11" width="4" height="4" rx="1" stroke-width="1.6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 11V9a2 2 0 114 0v2"/></svg>
+                                </span>
+                                <span>Cyber<br>Security</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-mobile-accreditation hidden mt-7 rounded-2xl border border-[#4A65FF]/30 bg-[#06173a]/80 p-4 backdrop-blur-sm">
+                        <p class="text-[11px] text-[#8FA6FF] font-semibold tracking-[0.14em] uppercase mb-3">Recognized & Accredited By</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 p-2.5">
+                                <img src="Assets/Asset 7.webp" alt="AICTE" class="w-8 h-8 object-contain shrink-0" />
+                                <span class="text-white text-[12px] leading-tight font-medium">AICTE</span>
+                            </div>
+                            <div class="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 p-2.5">
+                                <img src="Assets/NAAC_logo.tif.webp" alt="NAAC A+" class="w-8 h-8 object-contain shrink-0" />
+                                <span class="text-white text-[12px] leading-tight font-medium">NAAC A+</span>
+                            </div>
+                            <div class="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 p-2.5">
+                                <img src="Assets/Asset 6.webp" alt="NBA" class="w-8 h-8 object-contain shrink-0" />
+                                <span class="text-white text-[12px] leading-tight font-medium">NBA</span>
+                            </div>
+                            <div class="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 p-2.5">
+                                <img src="Assets/Asset 4.webp" alt="UGC" class="w-8 h-8 object-contain shrink-0" />
+                                <span class="text-white text-[12px] leading-tight font-medium">UGC</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -370,7 +1526,7 @@
                 </div>
             </div>
 
-            <div class="mt-8 border-[#4A65FF]/40 pt-4 pb-2 flex flex-wrap lg:flex-nowrap items-center justify-between max-w-[910px] gap-y-3 gap-x-4 z-30 relative -translate-y-6">
+            <div class="hero-stats-row mt-8 border-[#4A65FF]/40 pt-4 pb-2 flex flex-wrap lg:flex-nowrap items-center justify-between max-w-[910px] gap-y-3 gap-x-4 z-30 relative -translate-y-6">
                 <div class="flex items-center gap-2">
                     <svg class="w-9 h-16 text-[#5C75FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"></path>
@@ -415,55 +1571,45 @@
         </div>
     </section>
 
-    <section class="relative z-30 max-w-[1600px] mx-auto px-6 lg:px-12 -mt-[52px] mb-12">
-        <div class="bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] px-8 py-8 flex flex-col lg:flex-row items-center justify-between gap-6 w-full">
-            <div class="flex items-center gap-5 flex-1 w-full relative">
-                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+    <section id="accreditation-section" class="relative z-30 max-w-[1600px] mx-auto px-6 lg:px-12 -mt-[52px] mb-12">
+        <div class="bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.18)] px-5 sm:px-7 lg:px-8 pt-7 pb-8 w-full">
+            <h3 class="text-center text-[#5266A2] text-[13px] sm:text-[14px] font-bold tracking-[0.22em] uppercase mb-6">Recognized &amp; Accredited By</h3>
+            <div class="flex items-center gap-4">
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 items-center gap-y-7 flex-1">
+                    <div class="flex items-center justify-center gap-3 px-3 xl:border-r border-gray-200">
+                        <img src="Assets/Asset 1.webp" alt="Government of Maharashtra" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">Government</h4><p class="text-gray-500 text-[13px] mt-1">Approved</p></div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 px-3 xl:border-r border-gray-200">
+                        <img src="Assets/NAAC_logo.tif.webp" alt="NAAC A+ accredited" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">NAAC A+</h4><p class="text-gray-500 text-[13px] mt-1">Accredited</p></div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 px-3 xl:border-r border-gray-200">
+                        <img src="Assets/Asset 3.webp" alt="University of Mumbai" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">Mumbai University</h4><p class="text-gray-500 text-[13px] mt-1">Affiliated</p></div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 px-3 xl:border-r border-gray-200">
+                        <img src="Assets/Asset 4.webp" alt="UGC Autonomous Institute" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">UGC</h4><p class="text-gray-500 text-[13px] mt-1">Autonomous</p></div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 px-3 xl:border-r border-gray-200">
+                        <img src="Assets/Asset 5.webp" alt="ISO certified" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">ISO</h4><p class="text-gray-500 text-[13px] mt-1">Certified</p></div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 px-3 xl:border-r border-gray-200">
+                        <img src="Assets/Asset 6.webp" alt="NBA accredited" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">NBA</h4><p class="text-gray-500 text-[13px] mt-1">Accredited</p></div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 px-3">
+                        <img src="Assets/Asset 7.webp" alt="AICTE approved" class="w-16 h-16 object-contain shrink-0" />
+                        <div><h4 class="text-gray-900 font-bold text-[15px] leading-tight">AICTE</h4><p class="text-gray-500 text-[13px] mt-1">Approved</p></div>
+                    </div>
                 </div>
-                <div class="flex flex-col">
-                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight">MCA</h4>
-                    <p class="text-gray-500 text-[16px] mt-1 mb-2">2 Years</p>
-                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
-                </div>
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-px h-[50px] bg-gray-200 hidden lg:block"></div>
-            </div>
-            <div class="flex items-center gap-5 flex-1 w-full pl-0 lg:pl-4 relative">
-                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14v6"></path></svg>
-                </div>
-                <div class="flex flex-col">
-                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight">Integrated MCA</h4>
-                    <p class="text-gray-500 text-[16px] mt-1 mb-2">5 Years</p>
-                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
-                </div>
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-px h-[50px] bg-gray-200 hidden lg:block"></div>
-            </div>
-            <div class="flex items-center gap-5 flex-1 w-full pl-0 lg:pl-4 relative">
-                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <div class="flex flex-col">
-                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight flex items-center flex-wrap">MCA <span class="text-gray-600 font-medium text-[16px] ml-1">(Working Professionals)</span></h4>
-                    <p class="text-gray-500 text-[16px] mt-1 mb-2">Weekend Program</p>
-                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
-                </div>
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-px h-[50px] bg-gray-200 hidden lg:block"></div>
-            </div>
-            <div class="flex items-center gap-5 flex-1 w-full pl-0 lg:pl-4">
-                <div class="w-[64px] h-[64px] rounded-full bg-[#F4F6FF] border border-[#E5E9FF] text-[#4A65FF] flex items-center justify-center shrink-0">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                </div>
-                <div class="flex flex-col">
-                    <h4 class="text-gray-900 font-bold text-[20px] leading-tight">PhD</h4>
-                    <p class="text-gray-500 text-[16px] mt-1 mb-2">Doctorate Program</p>
-                    <div class="w-8 h-[2.5px] bg-[#3B5BFF] rounded-full"></div>
-                </div>
+               
             </div>
         </div>
     </section>
-
-   
 
     <section id="programs-section" class="dotted-bg w-full font-sans antialiased py-10 relative overflow-hidden border-t border-gray-200">
         
@@ -1892,7 +3038,7 @@
 <footer class="bg-[#02112C] border-t border-[#1e2d4a] py-5 text-center font-sans">
     <p class="text-gray-300 text-[13px] leading-relaxed">
         Copyright &copy; 2026 Thakur Institute of Management Studies, Career Development & Research
- <span >(An Institute under Thakur Education Group)</span>. All rights reserved.
+ <span >(An Institute under  Thakur Educational Trust )</span>. All rights reserved.
     </p>
     <p class="text-gray-500 text-[12px] mt-1">Developed by TEG Marketing Team</p>
 </footer>
@@ -2156,3 +3302,61 @@
     }
 </script>
 </html>
+
+<style>
+    .hero-bg-mobile { display: none; }
+
+    @media (max-width: 767px) {
+        .hero-bg-desktop { display: none; }
+        .hero-bg-mobile  { display: block; }
+    }
+</style>
+
+<style>
+    @media (max-width: 767px) {
+        section:first-of-type > .absolute.right-0.top-0 .hero-bg-mobile {
+            object-position: right top !important;
+        }
+    }
+</style>
+
+<style>
+    @media (max-width: 767px) {
+        #accreditation-section {
+            margin-top: 3rem !important;
+        }
+        #accreditation-section > div {
+            padding-top: 0.75rem !important;
+        }
+        #accreditation-section h3 {
+            position: relative;
+            margin: -0.75rem -1rem 0.75rem !important;
+            padding: 0.6rem 1rem !important;
+            background: transparent !important;
+            color: #5266A2 !important;
+        }
+    }
+</style>
+
+<style>
+    @media (max-width: 767px) {
+        #accreditation-section > div {
+            position: relative;
+            overflow: visible !important;
+        }
+        #accreditation-section h3 {
+            position: absolute !important;
+            top: -2rem !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: center !important;
+            background: transparent !important;
+            color: #8FA6FF !important;
+        }
+        #accreditation-section > div > .flex {
+            padding-top: 0 !important;
+        }
+    }
+</style>
