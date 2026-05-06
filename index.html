@@ -478,6 +478,69 @@
         }
     }
 
+    /* ============================================
+       GLOBAL MOBILE TYPOGRAPHY — consistent sizes
+       across ALL sections on mobile
+       ============================================ */
+    @media (max-width: 767px) {
+
+        /* Section label / eyebrow (CHOOSE YOUR PROGRAM, PLACEMENTS, etc.) */
+        section span.uppercase,
+        section span.tracking-wider,
+        section span.tracking-\[0\.15em\],
+        section span.tracking-\[0\.22em\],
+        section span.font-bold.uppercase,
+        section span.font-semibold.uppercase {
+            font-size: 0.7rem !important;
+            letter-spacing: 0.1em !important;
+        }
+
+        /* Section main headings h2 */
+        section h2 {
+            font-size: 1.55rem !important;
+            line-height: 1.2 !important;
+        }
+
+        /* Card / sub-section headings h3, h4 */
+        section h3,
+        section h4 {
+            font-size: 1rem !important;
+            line-height: 1.3 !important;
+        }
+
+        /* Body / description paragraphs */
+        section p {
+            font-size: 0.875rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Small labels, meta text, card subtitles */
+        section h5,
+        section .text-\[13px\],
+        section .text-\[12px\],
+        section .text-\[11px\] {
+            font-size: 0.78rem !important;
+        }
+
+        /* Feature/card item headings (h4 inside cards) */
+        section .flex.items-center h4,
+        section .flex.items-start h4 {
+            font-size: 0.9rem !important;
+        }
+
+        /* Beyond Classrooms — Campus Life section big heading */
+        section.bg-\[\#040A18\].w-full.py-6 h2 {
+            font-size: 2.4rem !important;
+            line-height: 1.1 !important;
+        }
+
+        /* Your Future, Our Priority — Placements section big heading */
+        section.bg-\[\#FAFCFF\] h2 {
+            font-size: 2.2rem !important;
+            line-height: 1.15 !important;
+        }
+    }
+
     @media (max-width: 767px) {
         section {
             padding-top: 2rem !important;
@@ -1981,7 +2044,7 @@
         <div class="w-full lg:w-[32%] flex flex-col pt-4">
             
             <!-- Label -->
-            <span class="text-[#3B5BFF] text-[13px] font-bold tracking-[0.15em] uppercase mb-4 block">
+            <span class="text-[#3B5BFF] text-[24px] font-bold tracking-[0.15em] uppercase mb-4 block">
                 PLACEMENTS
             </span>
             
