@@ -806,8 +806,9 @@
         section:first-of-type > .absolute.right-0.top-0 .hero-bg-mobile {
             display: block !important;
             opacity: 1 !important;
-            object-position: 100% top !important;
-            transform: scale(1.0);
+            object-position: 110% center !important;
+            transform: scale(1.02);
+            filter: brightness(0.82) saturate(0.92) contrast(1.03);
         }
 
         section:first-of-type > .absolute.right-0.top-0 .hero-bg-desktop {
@@ -819,8 +820,9 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(90deg, rgba(2,17,44,1) 0%, rgba(2,17,44,0.92) 38%, rgba(2,17,44,0.45) 58%, rgba(2,17,44,0.05) 100%),
-                linear-gradient(180deg, rgba(2,17,44,0.55) 0%, rgba(2,17,44,0.1) 35%, rgba(2,17,44,0.1) 60%, rgba(2,17,44,0.92) 100%);
+                linear-gradient(90deg, rgba(2,17,44,0.5) 0%, rgba(2,17,44,0.45) 34%, rgba(2,17,44,0.3) 54%, rgba(2,17,44,0.05) 100%),
+                radial-gradient(circle at 18% 18%, rgba(59,91,255,0.05), transparent 40%),
+                linear-gradient(180deg, rgba(2,17,44,0.3) 0%, rgba(2,17,44,0.02) 38%, rgba(2,17,44,0.02) 65%, rgba(2,17,44,0.45) 100%);
         }
 
         section:first-of-type .relative.z-20.max-w-\[1400px\] {
@@ -841,7 +843,7 @@
         }
 
         section:first-of-type header.hero-header img {
-            width: 70% !important;
+            width: 80% !important;
             height: auto !important;
             max-height: 90px;
             object-fit: contain;
@@ -863,24 +865,41 @@
             display: none !important;
         }
 
-        section:first-of-type .hero-social-links {
-            gap: 0.5rem !important;
-            flex-wrap: nowrap !important;
-            width: auto !important;
-            justify-content: flex-end !important;
-        }
+        section:first-of-type .hero-social-links { display: none !important; }
 
-        section:first-of-type .hero-social-links a {
-            width: clamp(2.35rem, 10.2vw, 3.5rem) !important;
-            height: clamp(2.35rem, 10.2vw, 3.5rem) !important;
-            background: rgba(255,255,255,0.12) !important;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
-        }
+        section:first-of-type .hero-hamburger { display: flex !important; }
 
-        section:first-of-type .hero-social-links svg {
-            width: clamp(1.25rem, 5vw, 1.65rem) !important;
-            height: clamp(1.25rem, 5vw, 1.65rem) !important;
+        .hero-hamburger-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: rgba(6,18,52,0.97);
+            border: 1px solid rgba(74,101,255,0.3);
+            border-radius: 1rem;
+            padding: 1rem;
+            min-width: 180px;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            flex-direction: column;
+            gap: 0.75rem;
         }
+        .hero-hamburger-menu.open { display: flex; }
+        .hero-hamburger-menu a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.65rem;
+            color: white;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.55rem 0.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .hero-hamburger-menu a:last-child { border-bottom: none; }
+        .hero-hamburger-menu a svg { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
 
         section:first-of-type .flex.flex-col.lg\:flex-row.relative {
             min-height: 610px;
@@ -1121,10 +1140,22 @@
 
         #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 {
             display: grid !important;
-            grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-            gap: 0.3rem !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            gap: 0.5rem !important;
             align-items: center !important;
             overflow: hidden;
+        }
+
+        /* Center the 3 logos in row 2 between the 4 above */
+        #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div:nth-child(5) {
+            grid-column: 1 / span 1;
+            padding-left: 50%;
+        }
+        #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div:nth-child(6) {
+            grid-column: 2 / span 1;
+        }
+        #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div:nth-child(7) {
+            grid-column: 3 / span 1;
         }
 
         #accreditation-section .grid.grid-cols-2.md\:grid-cols-4.xl\:grid-cols-7 > div {
@@ -1140,13 +1171,13 @@
         }
 
         #accreditation-section img {
-            width: clamp(1.9rem, 8vw, 2.4rem) !important;
-            height: clamp(1.9rem, 8vw, 2.4rem) !important;
+            width: clamp(3rem, 11vw, 4rem) !important;
+            height: clamp(3rem, 11vw, 4rem) !important;
         }
 
         #accreditation-section h4 {
-            font-size: clamp(0.43rem, 1.85vw, 0.62rem) !important;
-            line-height: 1.05 !important;
+            font-size: clamp(0.58rem, 2.4vw, 0.78rem) !important;
+            line-height: 1.1 !important;
             overflow-wrap: normal !important;
         }
 
@@ -1393,7 +1424,7 @@
     <section class="relative bg-[#02112C] w-full pb-12 pt-8 z-10">
         <div class="absolute right-0 top-0 w-full lg:w-[60%] h-full z-0">
             <img src="/MCA00442.JPG" alt="Students" class="hero-bg-desktop w-full h-full object-cover opacity-95 object-[60%_center]" />
-            <img src="/MCA00301.JPG" alt="Students" class="hero-bg-mobile w-full h-full object-cover opacity-95 object-[60%_center]" />
+            <img src="/BGMBL.png" alt="Students" class="hero-bg-mobile w-full h-full object-cover opacity-95 object-[60%_center]" />
             <div class="absolute inset-0 bg-gradient-to-r from-[#02112C] via-[#02112C]/60 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#02112C]/60 via-transparent to-transparent"></div>
         </div>
@@ -1406,6 +1437,26 @@
                         Apply Now
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </button>
+                    <!-- Hamburger (mobile only) -->
+                    <div class="hero-hamburger relative hidden" style="z-index:50;">
+                        <button onclick="this.nextElementSibling.classList.toggle('open')" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center" aria-label="Menu">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                        </button>
+                        <div class="hero-hamburger-menu">
+                            <a href="https://wa.me/919876543210" target="_blank">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                WhatsApp
+                            </a>
+                            <a href="mailto:timscdr@thakureducation.org">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                Email Us
+                            </a>
+                            <a href="tel:+912228840484">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                Call Us
+                            </a>
+                        </div>
+                    </div>
                     <div class="hero-social-links flex items-center gap-3">
                     <!-- WhatsApp -->
                     <a href="https://wa.me/919876543210" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-colors group" title="WhatsApp">
@@ -1427,16 +1478,16 @@
             <div class="flex flex-col lg:flex-row relative">
                 <div class="w-full lg:w-[65%] z-30 pt-4 pb-12 lg:-ml-12">
                     <p class="text-[#647CFF] text-[13px] font-semibold tracking-[0.15em] uppercase mb-5">
-                        Shaping Careers. Impacting Lives.
+                        Learn the Systems Behind Every Technology.
                     </p>
                     <h1 class="text-[44px] lg:text-[52px] leading-[1.1] font-bold mb-6 tracking-tight">
-                        <span class="text-white">Industry Relevant Education.</span><br/>
+                        <span class="text-white">Strong Technical Foundation.</span><br/>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7B8CFF] to-[#A370FF]">
-                            Future Ready Careers.
+                          Applied Learning Approach.
                         </span>
                     </h1>
                     <p class="hero-subcopy text-gray-300 text-[17px] mb-10 max-w-md leading-relaxed font-light">
-                        AICTE approved MCA programs with advanced curriculum, practical exposure and holistic development.
+                       AICTE approved MCA programmes built around programming, data and modern computing.
                     </p>
                     <div class="hero-mobile-lower">
                         <div class="flex items-center gap-5">
@@ -1624,7 +1675,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                     <div class="flex flex-col justify-center">
-                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">5000+</h3>
+                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">0+</h3>
                         <p class="text-gray-300 text-[16px] leading-none">Alumni Network</p>
                     </div>
                 </div>
@@ -1635,7 +1686,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 20h16M4 16v4m4-8v8m4-12v12"></path>
                     </svg>
                     <div class="flex flex-col justify-center">
-                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">300+</h3>
+                        <h3 class="text-white font-bold text-[20px] leading-none mb-1">0+</h3>
                         <p class="text-gray-300 text-[16px] leading-none">Recruiting Partners</p>
                     </div>
                 </div>
@@ -1778,7 +1829,7 @@
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
                     <h3 class="text-[20px] font-bold mb-1 title-text text-gray-900 group-hover:text-[#3B5BFF] leading-tight">MCA <span class="font-normal text-[16px] block lg:inline">(Working Professionals)</span></h3>
-                    <p class="text-[16px] duration-text text-gray-500 group-hover:text-[#3B5BFF]">Weekend Program</p>
+                    <p class="text-[16px] duration-text text-gray-500 group-hover:text-[#3B5BFF]">Flexible Timings</p>
                     <div class="tab-underline"></div>
                     <div class="tab-pointer"></div>
                 </button>
@@ -1890,7 +1941,8 @@
                     </h2>
                     
                     <p class="text-gray-300 text-[18px] xl:text-[20px] leading-relaxed mb-4 max-w-[320px]">
-                        Industry-aligned learning with real career outcomes.
+                       
+A learning experience built for real-world careers
                     </p>
                     
                     <div class="w-12 h-[3px] bg-gradient-to-r from-[#7B8CFF] to-[#C084FF] rounded-full"></div>
@@ -1952,7 +2004,7 @@
                         </div>
                         <div class="flex flex-col mt-1 xl:mt-2">
                             <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Industry-Aligned Curriculum</h4>
-                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Designed with industry insights to keep you future-ready.</p>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Built with inputs from leading tech companies to match evolving industry needs and future technologies.</p>
                         </div>
                     </div>
 
@@ -1965,7 +2017,7 @@
                         </div>
                         <div class="flex flex-col mt-1 xl:mt-2">
                             <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Expert Faculty</h4>
-                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Learn from experienced academicians and industry professionals.</p>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Learn from experienced academicians and industry professionals who bring practical insights into every classroom.</p>
                         </div>
                     </div>
 
@@ -1978,7 +2030,7 @@
                         </div>
                         <div class="flex flex-col mt-1 xl:mt-2">
                             <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Hands-on Learning</h4>
-                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Practical approach with projects and real-world problem solving.</p>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Engage in live projects, hackathons, and real-world problem solving through a strongly application-based approach.</p>
                         </div>
                     </div>
 
@@ -1991,7 +2043,7 @@
                         </div>
                         <div class="flex flex-col mt-1 xl:mt-2">
                             <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Modern Infrastructure</h4>
-                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">State-of-the-art labs and technology for immersive learning.</p>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Advanced labs, innovation spaces, and technology-enabled learning environments for immersive education.</p>
                         </div>
                     </div>
 
@@ -2004,7 +2056,7 @@
                         </div>
                         <div class="flex flex-col mt-1 xl:mt-2">
                             <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Career Support</h4>
-                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Dedicated guidance for internships, placements and career growth.</p>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Structured placement system with training, mentorship, and 100% placement assistance to guide your career path.</p>
                         </div>
                     </div>
 
@@ -2017,7 +2069,7 @@
                         </div>
                         <div class="flex flex-col mt-1 xl:mt-2">
                             <h4 class="text-white font-semibold text-[20px] leading-tight mb-2">Strong Alumni Network</h4>
-                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Join a vibrant community of 5000+ alumni making an impact.</p>
+                            <p class="text-[#8E95B3] text-[16px] leading-relaxed">Be part of a growing community of professionals contributing across industries and driving impact.</p>
                         </div>
                     </div>
 
@@ -2741,29 +2793,12 @@
                         </div>
                     </div>
 
-                    <!-- STEP 2: Document Verification -->
-                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
-                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
-                            2
-                        </div>
-                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
-                            <!-- Document Icon -->
-                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide">Document<br/>Verification</h3>
-                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Our team will verify<br/>your documents and<br/>academic details.</p>
-                        
-                        <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
+                    
 
                     <!-- STEP 3: CAP Rounds -->
                     <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
                         <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
-                            3
+                            2
                         </div>
                         <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
                             <!-- Group Icon -->
@@ -2773,6 +2808,25 @@
                         </div>
                         <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide"><br/>CAP Rounds</h3>
                         <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Participate in CAP<br/>rounds and select<br/>the program that<br/>fits you best.</p>
+                        
+                        <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Document Verification -->
+                    <div class="flex flex-col items-center text-center w-full lg:w-[18%] relative">
+                        <div class="w-[40px] h-[40px] rounded-full bg-white border-2 border-[#3B5BFF] flex items-center justify-center text-[#3B5BFF] font-bold text-[18px] mb-6 z-10 shadow-sm">
+                            3
+                        </div>
+                        <div class="w-[110px] h-[110px] rounded-full border border-[#3B5BFF]/20 bg-[#EEF2FF] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(59,91,255,0.05)]">
+                            <!-- Document Icon -->
+                            <svg class="w-12 h-12 text-[#3B5BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-[#1A1D1F] font-bold text-[15px] uppercase mb-3 leading-snug tracking-wide">Document<br/>Verification</h3>
+                        <p class="text-[#6F767E] text-[14px] leading-relaxed px-2">Our team will verify<br/>your documents and<br/>academic details.</p>
                         
                         <div class="hidden lg:block absolute right-[-15%] top-[75px] text-[#CBD5E1]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
@@ -3135,82 +3189,79 @@
             duration: '2 Years',
             mode: 'Full Time',
             image: 'mca.jpeg',
-            desc: 'Build a strong foundation in computer applications and software development. Our MCA program equips you with the skills needed to thrive in the tech industry.',
+            desc: 'The MCA programme builds a strong foundation in computer science and real-world application. It focuses on technical expertise, problem-solving, and innovation to prepare students for the evolving digital world.',
             highlights: [
-                { icon: 'shield', text1: 'AICTE Approved', text2: 'Curriculum' },
-                { icon: 'users', text1: 'Industry-Relevant', text2: 'Skills' },
-                { icon: 'code', text1: 'Hands-on', text2: 'Projects' },
-                { icon: 'expert', text1: 'Expert', text2: 'Faculty' },
-                { icon: 'placement', text1: 'Placement', text2: 'Assistance' }
+                { icon: 'shield', text1: 'Comprehensive', text2: 'Learning' },
+                { icon: 'users', text1: 'Industry-Focused', text2: 'Approach' },
+                { icon: 'code', text1: 'Hands-on', text2: 'Application' },
+                { icon: 'expert', text1: 'Industry', text2: 'Internship' }
             ],
             keyInfo: [
                 { icon: 'calendar', label: 'Duration', value: '2 Years' },
-                { icon: 'eligibility', label: 'Eligibility', value: 'Graduation with 50% marks' },
-                { icon: 'users', label: 'Intake', value: '120 Seats' },
-                { icon: 'clock', label: 'Mode', value: 'Full Time' },
-                { icon: 'rupee', label: 'Fees', value: '₹ 1,20,000 / Year' }
+                { icon: 'eligibility', label: 'Eligibility', value: 'Graduation in any discipline with minimum 50% marks. Valid MAH MCA CET score required.' },
+                { icon: 'users', label: 'Intake', value: '240 Seats' },
+                { icon: 'clock', label: 'Mode', value: 'Full Time (Offline)' },
+                { icon: 'rupee', label: 'Fees', value: 'As per institute policy' }
             ],
             whyChoose: [
-                "Comprehensive coverage of core CS concepts",
-                "Hands-on coding and development labs",
-                "100% placement assistance program",
-                "Industry-aligned capstone projects"
+                'In-depth understanding of core computer science concepts and modern computing systems',
+                'Curriculum aligned with current industry requirements and emerging technologies',
+                'Practical exposure through coding, labs, and real-world problem solving',
+                'Six-month internship in the final semester for real industry experience'
             ]
         },
         integrated: {
             title: 'Integrated MCA',
-            subtitle: 'BCA + MCA Integrated Program',
+            subtitle: 'Integrated 5-Year MCA Programme',
             duration: '5 Years',
             mode: 'Full Time',
             image: 'INT.jpeg',
-            desc: 'A seamless 5-year journey from Class 12 to a Master\'s degree, designed to build core computing skills and advanced expertise early in your academic life.',
+            desc: 'An integrated programme that combines undergraduate and postgraduate studies into a single pathway, building strong academic foundations and preparing students for advanced roles in the tech industry.',
             highlights: [
-                { icon: 'shield', text1: 'Post-12th', text2: 'Entry' },
-                { icon: 'code', text1: 'Tech-First', text2: 'Curriculum' },
-                { icon: 'users', text1: 'Faster', text2: 'Graduation' },
-                { icon: 'expert', text1: 'Expert', text2: 'Mentors' },
-                { icon: 'placement', text1: 'Global', text2: 'Opportunities' }
+                { icon: 'shield', text1: 'Integrated', text2: 'Academic Pathway' },
+                { icon: 'users', text1: 'Early Start to', text2: 'Technical Education' },
+                { icon: 'code', text1: 'Time-Efficient', text2: 'Learning' },
+                { icon: 'expert', text1: 'Strong', text2: 'Computing Foundation' }
             ],
             keyInfo: [
                 { icon: 'calendar', label: 'Duration', value: '5 Years' },
-                { icon: 'eligibility', label: 'Eligibility', value: 'Class 12th with 50% marks' },
+                { icon: 'eligibility', label: 'Eligibility', value: '10+2 with Mathematics/Statistics/Accountancy, minimum 45% marks. Valid MAH MCA CET score required.' },
                 { icon: 'users', label: 'Intake', value: '60 Seats' },
                 { icon: 'clock', label: 'Mode', value: 'Full Time' },
-                { icon: 'rupee', label: 'Fees', value: '₹ 1,10,000 / Year' }
+                { icon: 'rupee', label: 'Fees', value: 'As per institute policy' }
             ],
             whyChoose: [
-                "Save 1 year of academic time and fees",
-                "Seamless transition from UG to PG level",
-                "Early exposure to advanced technologies",
-                "Strong foundation in mathematics and logic"
+                'A seamless five-year programme combining undergraduate and postgraduate learning',
+                'Begin specialising in computing and technology immediately after Class 12',
+                'Complete both degrees in a structured format without separate admissions',
+                'Build from foundational concepts to advanced technical expertise over five years'
             ]
         },
         professional: {
             title: 'MCA (Working Professionals)',
             subtitle: 'Master of Computer Applications',
             duration: '2 Years',
-            mode: 'Weekend',
+            mode: 'Full Time',
             image: 'WP.jpeg',
-            desc: 'Designed for working techies who want to upskill without pausing their career. Practical, project-based learning focused on the latest industry demands.',
+            desc: 'A specialised programme for working professionals to upgrade technical expertise while continuing their careers, with a schedule designed to align with industry commitments.',
             highlights: [
-                { icon: 'clock', text1: 'Flexible', text2: 'Schedule' },
-                { icon: 'expert', text1: 'Upskill While', text2: 'Working' },
-                { icon: 'code', text1: 'Case Study', text2: 'Focus' },
-                { icon: 'shield', text1: 'Industry', text2: 'Recognition' },
-                { icon: 'users', text1: 'Peer', text2: 'Networking' }
+                { icon: 'clock', text1: 'Designed for', text2: 'Working Professionals' },
+                { icon: 'expert', text1: 'Flexible', text2: 'Learning Schedule' },
+                { icon: 'code', text1: 'Industry', text2: 'Integrated Learning' },
+                { icon: 'shield', text1: 'Career', text2: 'Advancement Focus' }
             ],
             keyInfo: [
                 { icon: 'calendar', label: 'Duration', value: '2 Years' },
-                { icon: 'eligibility', label: 'Eligibility', value: 'IT Bachelor\'s + Experience' },
+                { icon: 'eligibility', label: 'Eligibility', value: 'Graduation in any discipline with minimum 50% marks, 1 year full-time work experience, and employment in a registered organisation within 50 km.' },
                 { icon: 'users', label: 'Intake', value: '60 Seats' },
-                { icon: 'clock', label: 'Mode', value: 'Weekend Program' },
-                { icon: 'rupee', label: 'Fees', value: '₹ 1,50,000 / Year' }
+                { icon: 'clock', label: 'Mode', value: 'Full Time (Face-to-Face)' },
+                { icon: 'rupee', label: 'Fees', value: 'As per institute policy' }
             ],
             whyChoose: [
-                "Weekend classes tailored for professionals",
-                "Industry-relevant advanced curriculum",
-                "Learn directly from experienced tech leaders",
-                "Career growth with highly in-demand skills"
+                'Tailored for professionals balancing career commitments with higher education',
+                'Classes scheduled in the evening or convenient industry-aligned timings',
+                'Apply academic concepts directly within your current professional role',
+                'Focus on career advancement and specialised technical roles'
             ]
         },
         phd: {
@@ -3390,14 +3441,14 @@
 
     @media (max-width: 767px) {
         .hero-bg-desktop { display: none; }
-        .hero-bg-mobile  { display: block; }
+        .hero-bg-mobile  { display: block; filter: brightness(0.78) saturate(0.95) contrast(1.05); }
     }
 </style>
 
 <style>
     @media (max-width: 767px) {
         section:first-of-type > .absolute.right-0.top-0 .hero-bg-mobile {
-            object-position: right top !important;
+            object-position: right center !important;
         }
     }
 </style>
