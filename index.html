@@ -248,6 +248,25 @@
         overflow-wrap: anywhere;
     }
 
+    @media (min-width: 768px) {
+        section:first-of-type .hero-header-right {
+            margin-left: auto;
+            justify-content: flex-end !important;
+        }
+        section:first-of-type .hero-social-links {
+            display: flex !important;
+            justify-content: flex-end;
+        }
+        section:first-of-type .hero-social-links a {
+            width: 4rem !important;
+            height: 4rem !important;
+        }
+        section:first-of-type .hero-social-links a svg {
+            width: 2.2rem !important;
+            height: 2.2rem !important;
+        }
+    }
+
     @media (max-width: 1279px) {
         .logo-card {
             width: clamp(104px, 18vw, 150px);
